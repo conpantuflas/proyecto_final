@@ -1,0 +1,24 @@
+.firstContent_userRecipe{
+    width: 11rem;
+    display:flex;
+    justify-content: space-between;
+    margin-right: 8rem;
+}
+
+.image_UserRecipe{
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.name_UserRecipe{
+    font-weight: 500;
+    margin: 0;
+    margin-top: 0.7rem;
+}
+
+.userName_UserRecipe{
+    font-weight: 200;
+    margin: 0.2rem;
+}

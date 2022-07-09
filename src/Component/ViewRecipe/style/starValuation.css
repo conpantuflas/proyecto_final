@@ -1,0 +1,8 @@
+.star_valuation{
+    width: 2rem;
+    height: 2rem;
+}
+
+.star_valuation:hover{
+   transform:scale(1.3)
+}
