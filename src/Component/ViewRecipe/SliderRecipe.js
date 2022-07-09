@@ -26,7 +26,7 @@ const SliderRecipe = () => {
             slideshow.current.style.transform = `translateX(-${tamañoSlider}px)`;
 
             const transicion = ()=>{
-                slideshow.current.style.transition = `nonel`;
+                slideshow.current.style.transition = `none`;
                 slideshow.current.style.transform = `translateX(0)`;
                 slideshow.current.appendChild(primerElemento);
 
@@ -38,7 +38,7 @@ const SliderRecipe = () => {
     } 
     
     const anterior = () => {
-        console.log('anterior')
+
         if(slideshow.current.children.length > 0){
             const index = slideshow.current.children.length -1;
             const ultimoElemento = slideshow.current.children[index];
