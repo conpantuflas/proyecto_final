@@ -2,12 +2,12 @@ import React from 'react';
 import './createRecipe.css'
 import time from "../ViewRecipe/image/time.png"
 import portions from "../ViewRecipe/image/portions.png"
+import Navbar from '../Navbar/Navbar';
 
 const CreateRecipe = () => {
     return (
         < >
-         {/* className=" _craeteRecipe" */}
-        <p className="falseNavbar_createRecipe" >fake navbar</p>
+        <Navbar />
         <form>
         <h2 className="title_createRecipe"> Create Recipe</h2>
         <input className="nameOfRecipe_createRecipe" type="text" placeholder='write the name of recipe'/>
@@ -58,8 +58,10 @@ const CreateRecipe = () => {
                 <textarea type="text" className="setpDescription_createRecipe" placeholder='write you step in here' />
             </div>
         </div>
-        <button>add step +</button>
-        <button>Create</button>
+       <div className='contentFinalButton_createRecipe'>
+            <button className='addStepButton_createRecipe'>add step +</button>
+            <button className='createRecipeButton_createRecipe'>Create Recipe</button>
+       </div>
         </form>
         </>
      );

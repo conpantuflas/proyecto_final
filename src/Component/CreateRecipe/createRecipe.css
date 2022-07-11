@@ -1,10 +1,4 @@
-.falseNavbar_createRecipe{
-    width: 92.4%;
-    height:2rem;
-    background: gray;
-    margin: 0;
-    padding:3rem; 
-}
+
 
 .title_createRecipe{
    font-weight: 300;
@@ -170,5 +164,32 @@
     border-radius: 10px;
     outline: none;
     color:#fff;
+}
+
+.contentFinalButton_createRecipe{
+    display:flex;
+    flex-direction: column;
+}
+
+.addStepButton_createRecipe{
+    background: none;
+    color: rgb(0, 102, 255);
+    border:none;
+    margin: 0 auto;
+}
+
+.createRecipeButton_createRecipe{
+    background-color: #46a600;
+    color: #fff;
+    width: 12%;
+    margin: 5rem auto;
+    border:none;
+    border-radius:20px;
+    padding: 0.5rem;
+}
+
+.createRecipeButton_createRecipe:hover{
+    transform: rotate(5deg) scale(1.1);
+	transform-origin: top center; 
 }
 

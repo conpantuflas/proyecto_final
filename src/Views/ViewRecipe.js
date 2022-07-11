@@ -7,17 +7,11 @@ import UserRecipe from '../Component/ViewRecipe/UserRecipe';
 import Portions from '../Component/ViewRecipe/Portions';
 import Valuation from '../Component/ViewRecipe/Valuation';
 import Steps from '../Component/ViewRecipe/Steps';
+import Navbar from '../Component/Navbar/Navbar';
 
 const ViewRecipe = () => {
 
     const style = {
-        navbarFalse:{
-            width: "75rem",
-            heght:"20rem",
-            background: "gray",
-            margin: "0",
-            padding:"3rem",
-        },
         titleRecipe:{
             fontSize: "2rem",
             margin: "0",
@@ -59,7 +53,7 @@ const ViewRecipe = () => {
 
     return (
         <div>
-            <p style={style.navbarFalse} >insert navbar</p>
+            <Navbar />
 
 {/* all of title and button dicount */}
             <div style={style.contentTitleAndButtonFather} >

@@ -13,6 +13,7 @@ import img4 from "./imagenesDePrueba/img4.jpg";
 import img5 from "./imagenesDePrueba/img5.jpg";
 import img6 from "./imagenesDePrueba/img6.jpg";
 import img7 from "./imagenesDePrueba/img7.jpg";
+import Navbar from "../Navbar/Navbar";
 
 const Favoritos = () => {
   let favoritos = [
@@ -114,6 +115,7 @@ const Favoritos = () => {
 
   return (
     <>
+    <Navbar />
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
           {favVisible.map((favorito) => {
