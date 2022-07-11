@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Component/Home.js';
 import ViewRecipe from './Views/ViewRecipe';
 import CreateRecipe from './Component/CreateRecipe/CreateRecipe';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
