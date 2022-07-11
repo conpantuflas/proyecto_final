@@ -8,7 +8,7 @@ const Steps = () => {
             <p className="preparationsFirstTitle_steps">Preparations steps</p>
 
             <div className="oneStep">
-                <img className="image_steps" src={imagenProvisoria} />
+                <img className="image_steps" src={imagenProvisoria} alt="x" />
                 <div className="divText_step">
                     <p className="titleDescription_step">Title</p>
                     <p className="description_step">
@@ -21,7 +21,7 @@ const Steps = () => {
             </div>
 
             <div className="oneStep">
-                <img className="image_steps" src={imagenProvisoria} />
+                <img className="image_steps" src={imagenProvisoria}  alt="x"/>
                 <div className="divText_step">
                     <p className="titleDescription_step">Title</p>
                     <p className="description_step">

@@ -1,0 +1,174 @@
+.falseNavbar_createRecipe{
+    width: 92.4%;
+    height:2rem;
+    background: gray;
+    margin: 0;
+    padding:3rem; 
+}
+
+.title_createRecipe{
+   font-weight: 300;
+   font-size: 2rem; 
+}
+
+.nameOfRecipe_createRecipe{
+    width: 40%;
+    background: #c7c6c6;
+    border:none;
+    padding: 0.5rem;
+    border-radius: 15px;
+    outline: none;
+
+}
+
+::placeholder{color: #fff;}
+
+
+
+/* add image */
+
+.contentImageAndIngredient_createRecipe{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3%;
+}
+
+.contentAddImage_createRecipe{
+    position:relative;
+    padding: 10px;
+    width: 26%;
+    height: 17rem;
+    background-color: #e9e9e9;
+    border-radius:15px ;
+}
+
+.textAddImage_createRecipe{
+    text-align: center;
+    margin-top: 7.2rem ;
+    color: #757575;
+    font-size: 1.5rem;;
+}
+
+.inputFile_createRecipe{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
+
+/* ingredients */
+
+.contentIngredient_craeteRecipe{
+    background-color: #e9e9e9;
+    width: 30%;
+    padding: 1rem;
+    height: 16rem;
+    border-radius: 15px;
+}
+
+.titleIngredients_craeteRecipe{
+    font-size: 1.2rem;
+}
+
+.contentOneIngredients_craeteRecipe{
+    max-height: 12rem;
+    overflow-y: scroll;
+}
+
+.oneIngredient_craeteRecipe{
+    background: #c7c6c6;
+    width: 60%;
+    padding: 0.5rem;
+    border-radius:20px;
+    font-size: 0.8rem;
+    margin-right:1rem;
+    border:none;
+    margin: 0.5rem;
+    outline: none;
+}
+
+.portion_craeteRecipe{
+    background: #c7c6c6;
+    width: 20%;
+    padding: 0.5rem;
+    border-radius:20px;
+    font-size: 0.8rem;
+    margin-right:1rem;
+    border:none;
+    outline: none;
+}
+
+.buttonMore_craeteRecipe{
+    background: none;
+    border:none;
+    color: rgb(0, 102, 255);
+    font-size: 0.9rem;
+    margin:0.1rem;
+}
+
+
+/* time and portions */
+
+.contentIconAndImput_craeteRecipe{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.icon_craeteRecipe{
+    width: 4rem;
+    margin-bottom: -1rem;
+}
+
+.inputTimeAndPortion_craeteRecipe{
+    background: #c7c6c6;
+    border:none ;
+    padding: 0.5rem;
+    border-radius:20px;
+    outline: none;
+}
+
+.titleOfSection_createRecipe{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10%;
+    margin-top: 3rem;
+}
+
+/* steps */
+
+.stepContent_createRecipe{
+    display: flex;
+    margin:0 auto;
+    margin-bottom: 3rem;
+    background-color: #e9e9e9;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.contentAddImageStep_createRecipe{
+    position:relative;
+    padding: 10px;
+    width: 26%;
+    height: 17rem;
+    background-color:#c7c6c6;
+    border-radius:15px ;
+}
+
+.setpDescription_createRecipe{
+    width: 40rem;
+    height: 12rem;
+    margin-left: 2rem;
+    background-color: #c7c6c6;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color:#fff;
+}
+
