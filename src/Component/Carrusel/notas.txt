@@ -1,0 +1,12 @@
+Carousel funcionando, falta adaptar al contenedor que se ponga en la landing page
+
+Tutoriales vistos: https://www.youtube.com/watch?v=GUnyn6FYAWc
+
+Se uso el comando con "--force" por el problema "ERESOLVE unable to resolve dependency tree"
+npm i infinite-react-carousel --force
+
++OJO con los css a la hora de montar el carousel, esta hecho ahora para que ocupe el 100% del vh, despues 
+ adaptar al contenedor que se elija.
+
+Especificaciones del carousel:
+https://www.tutorialstuff.com/tutorials/infinite-carousel-for-react-2020

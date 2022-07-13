@@ -1,0 +1,38 @@
+.preparationsFirstTitle_steps{
+    font-size: 1.3rem;
+    margin-left: 10rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.oneStep{
+    background:#e9e9e9;
+    width: 76%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: flex;
+    border-radius: 15px;
+}
+
+.image_steps{
+    width: 13rem;
+    height: 13rem;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.divText_step{
+    margin: 1rem;
+}
+
+.titleDescription_step{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.description_step{
+
+}

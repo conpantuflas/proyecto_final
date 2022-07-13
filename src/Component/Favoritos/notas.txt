@@ -1,0 +1,41 @@
+Paquetes usados:
+  bootsrap: npm install bootstrap
+  fontawesome: npm i --save @fortawesome/fontawesome-svg-core
+  fontawesome: npm i --save @fortawesome/free-solid-svg-icons
+  fontawesome: npm i --save @fortawesome/free-regular-svg-icons
+  fontawesome: npm i --save @fortawesome/react-fontawesome@latest
+
+
+Pendientes:
+  Diseno, color, tamano
+  Fijar tamano fotos - MAOMENOS
+  Enlazar con con backEnd
+
+Tutoriales:
+  https://www.youtube.com/watch?v=IYCa1F-OWmk
+  https://www.youtube.com/watch?v=1_DXtP0XyDw
+
+Carta de bootstrap
+     // <div className="card mb-3" style={{ maxWidth: "540px" }}>
+    //   <div className="row g-0">
+    //     {/* Hacer el img container q sea 50% alto de su contenedor */}
+    //     <div className="img-container col-md-4">
+    //       <img
+    //         src={props.imagen}
+    //         className=" rounded-start" // saque: img-fluid
+    //         alt="..."
+    //       />
+    //     </div>
+    //     <div className="col-md-8">
+    //       <div className="card-body">
+    //         <h5 className="card-title">{props.titulo}</h5>
+    //         {/* <p className="card-text">{props.paso_a_paso}</p> */}
+    //         <p className="card-text">
+    //           <small className="text-muted">
+    //             Creado el {props.fecha_creacion} por {props.autor}
+    //           </small>
+    //         </p>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>

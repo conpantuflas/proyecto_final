@@ -1,0 +1,25 @@
+.content_timeRecipe{
+    display: flex;
+}
+
+.image_TimeRecipe{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 14rem;
+}
+
+.contentTime_timeRecipe{
+    display: flex;
+}
+
+.number_timeRecipe{
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin:0;
+    margin-left:0.8rem ;
+}
+
+.scaleTime_timeRecipe{
+    margin-top:1.4rem ;
+    font-weight: 300;
+}
