@@ -4,6 +4,7 @@ import injectContext from './Store/appContext';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Component/Home.js';
 import Header from './Component/Header.js';
+import Search from './Component/Search.js';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 			  </Routes>
 		   </BrowserRouter>
 		   <Header/>
+		   <Search/>
     </div>
   );
 }

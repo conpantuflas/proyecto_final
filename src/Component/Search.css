@@ -1,0 +1,26 @@
+form input {
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 11%;
+}
+
+form input[type=search] {
+    border-radius: 15px;
+    border: solid 1px rgb(4, 92, 30);
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 2em;
+    margin-left: -15vw;
+    outline: solid rgb(0, 255, 21) 0;
+    padding: .5em;
+    transition: all 2s ease-in;
+    width: 30vw;
+    z-index: 1;
+}
+
+form input[type=search]:focus {
+    border-radius: 20px;
+    border: solid 1px rgb(4, 92, 30);
+    outline: solid #fc0 2000px;
+}
