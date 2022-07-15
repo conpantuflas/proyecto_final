@@ -1,10 +1,26 @@
-import React from 'react';
+import React,{ useState, useContext } from 'react';
+import { Context } from '../../Store/appContext'
 import './createRecipe.css'
 import time from "../ViewRecipe/image/time.png"
 import portions from "../ViewRecipe/image/portions.png"
 import Navbar from '../Navbar/Navbar';
 
 const CreateRecipe = () => {
+
+    const {store, actions} = useContext(Context)
+
+    //state ingredient
+    const [ingredientName, setIngredientName] = useState("");
+    const [ingredientPortion, setIngredientPortion] = useState("");
+
+    const handleSubmitIngredient = (e) => {
+        e.preventDefault();
+        actions.handleSubmitCreateIngredient(
+            ingredientName,
+            ingredientPortion,
+        )
+    }
+
     return (
         < >
         <Navbar />
@@ -23,11 +39,19 @@ const CreateRecipe = () => {
                 <h2  className="titleIngredients_craeteRecipe" >Ingredients</h2>
 
                 <div className="contentOneIngredients_craeteRecipe" >
-                    <input className="oneIngredient_craeteRecipe" type="text" placeholder='a ingredient'/>
-                    <input className="portion_craeteRecipe" type="text" placeholder='portion'/>
+                    <input className="oneIngredient_craeteRecipe" type="text" placeholder='a ingredient'
+                        onChange={(e)=>{
+                            setIngredientName(e.target.value)
+                        }}
+                    />
+                    <input className="portion_craeteRecipe" type="text" placeholder='portion'
+                        onChange={(e) => {
+                            setIngredientPortion(e.target.value)
+                        }}
+                    />
                 </div>
 
-                <button className="buttonMore_craeteRecipe">more ingredient +</button>
+                <button className="buttonMore_craeteRecipe"   onClick={(e)=>handleSubmitIngredient(e)}>more ingredient +</button>
             </div>
 
         </div>
