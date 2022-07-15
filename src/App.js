@@ -3,6 +3,8 @@ import './App.css';
 import injectContext from './Store/appContext';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Component/Home.js';
+import Header from './Component/Header.js';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
 			    <Route path='/' element={  <Home /> }/>
 			  </Routes>
 		   </BrowserRouter>
+		   <Header/>
     </div>
   );
 }
