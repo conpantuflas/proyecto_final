@@ -2,31 +2,61 @@
 const getState = ({setStore, getActions, getStore}) => {
     return{
         store:{
-            user:{
-                fullName:"",
+             //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
+            createUser:{
+                name:"",
+                lastName:"",
                 email:"",
+                country:"",
+                allergy:"",
+                userName:"",
                 password:""
-            }
+            },
+            createIngredient:{
+                ingredientName: "",
+                ingredientPortion:"",
+            },
         },
 
         actions:{
-            handleSubmitCreateUser: (fullName, email, password) => {
+            //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
+            handleSubmitCreateUser: (name, lastName, email, country, allergy, userName, password) => {
             
-                const { user } = getStore()
+                const { createUser } = getStore()
 
-                user.fullName = fullName
-                user.email = email
-                user.password = password
+                createUser.name = name
+                createUser.last_name = lastName
+                createUser.email = email
+                createUser.country = country
+                createUser.allergy = allergy
+                createUser.user_name = userName
+                createUser.password = password
 
                 fetch( "http://localhost:8080/crear_usuario" , {
                 method:"POST",
                 headers:{
                     "content-type": "application/json"
                 },
-                body: JSON.stringify( user )
+                body: JSON.stringify( createUser )
             })
             .then( resp => resp.json() )
-            .then( data => console.log(data) )
+            .then( dataUser => console.log() )
+            },
+            handleSubmitCreateIngredient:(ingredientName, ingredientPortion) => {
+                const {  createIngredient } = getStore()
+
+                createIngredient.ingredient_name = ingredientName
+                createIngredient.ingredient_portion = ingredientPortion
+
+                fetch(  "http://localhost:8080/crear_ingrediente", {
+                    method:"POST",
+                    headers:{
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify( createIngredient )
+                })
+                .then( resp => resp.json())
+                .then( dataIngredient => console.log(dataIngredient))
             },
         }
     }
