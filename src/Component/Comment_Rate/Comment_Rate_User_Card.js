@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { Context } from "../../Store/appContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaStar } from "react-icons/fa";
 import "./Comment_Rate.css";
-import CommentRateStars from "./Comment_Rate_Stars";
 
 const CommentRateUserCard = (props) => {
+  const { actions } = useContext(Context);
+  useEffect(() => {
+    actions.getCommentsByRecipeId(6);
+  }, []);
+
   return (
     <>
       <div className="card card-comment-rate">
         <div className="row g-0">
           <div className="col-md-2">
             <img
-              src={props.userImg}
+              src={props.userImg} //Imagen del user
               className="user-avatar img-fluid rounded-start"
               alt="..."
             />
@@ -19,9 +24,13 @@ const CommentRateUserCard = (props) => {
           <div className="col-md-10">
             <div className="card-body d-flex flex-column align-items-start text-start">
               <h5 className="card-title d-flex">
-                {props.userName}{" "}
-                {[...Array(props.userRating)].map((star) => {
-                  return <FaStar className="totalRatingStars" />;
+                {"User Name"}{" "}
+                {[...Array(props.userRating)].map((star, i) => {
+                  return props.userRating == null ? (
+                    ""
+                  ) : (
+                    <FaStar key={i} className="totalRatingStars" />
+                  );
                 })}
               </h5>
               <p className="card-text">{props.userComment}</p>

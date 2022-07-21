@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaStar } from "react-icons/fa";
-
+import { Context } from "../../Store/appContext";
 import "./Comment_Rate.css";
 
-const CommentRateStars = (props) => {
+const CommentRateStars = () => {
+  const { actions, store } = useContext(Context);
+  useEffect(() => {
+    actions.getCommentsByRecipeId(6);
+  }, []);
+
   return (
     <>
       <div>
-        {[...Array(props.starsAvg)].map((star) => {
-          return <FaStar className="totalRatingStars" />;
+        {[...Array(store.comments[1])].map((star, i) => {
+          return <FaStar key={i} className="totalRatingStars" />;
         })}
       </div>
     </>

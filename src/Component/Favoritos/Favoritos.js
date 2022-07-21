@@ -102,7 +102,7 @@ const Favoritos = () => {
   ];
 
   const [paginaActual, setPaginaActual] = useState(1);
-  const [tarjetasVisibles, setTarjetasVisibles] = useState(3);
+  const [tarjetasVisibles] = useState(3);
   //En un futuro debera recibir el usuario que esta logueado por ahora enfocarse en desplegar los favoritos
 
   //Para obtener el favorito actual
@@ -115,7 +115,7 @@ const Favoritos = () => {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
           {favVisible.map((favorito) => {

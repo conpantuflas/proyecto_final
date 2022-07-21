@@ -1,4 +1,8 @@
-.card-inner-container {
+.main-CR-container {
+  margin-top: 5rem;
+}
+
+.card-CR-inner-container {
   height: 100%;
 }
 
