@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { Context } from '../../Store/appContext'
 import {Modal, TextField,Button} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import ModalCreateAcount from './ModalCreateAcount';
@@ -13,15 +14,17 @@ const useStyles = makeStyles((theme)=>({
         boxShadow: theme.shadows[5],
         //padding: theme.spacing[2,4,3],
         padding: "16px 32px 24px",
-        top: "30%",
+        top: "2%",
         left: "35%",
         transform: "transalte(-50%, -50%)",
     },
     textField:{
         width: "100%"
     },
-    buttonOpen:{
+    buttonOpenLogin:{
         margin:"0 auto",
+        color: "rgb(0, 102, 255)",
+        textTransform: "lowercase"
     },
     close:{
        background: "none",
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme)=>({
         borderRadius: "15px",
     },
     buttonSingUp:{
-        marginLeft: "7rem",
+        marginLeft: "3rem",
         border: "none",
         background: "none",
         color: "rgb(0, 102, 255)",
@@ -49,12 +52,24 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 const ModalSessionStart = () => {
+
+    const { store, actions } = useContext(Context)
+
     const styles = useStyles();
 
+    // state
     const [modal, setModal] = useState(false);
+    //user login state
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const abrirCerrarModal= () => {
         setModal(!modal)
+    }
+
+    const handleSubmitLogin = (e) => {
+        e.preventDefault();
+        actions.handleSubmitLoginUser( email, password )
     }
 
     const body = (
@@ -64,18 +79,27 @@ const ModalSessionStart = () => {
                 <h2>Session Start</h2>
             </div>
             <br/>
-            <TextField label="User Name" className={styles.textField} />
+            <TextField label="Email" className={styles.textField} 
+                onChange={(e)=>{
+                    setEmail(e.target.value)
+                }}
+            />
             <br/>  <br/>
-            <TextField label="Password" className={styles.textField} />
-            <br/>   <br/>
-            <button className={styles.buttonSingUp} >Sign up</button>
-            <button className={styles.buttonLogin} >Login</button>
+            <TextField label="Password" type="password" className={styles.textField} 
+                onChange={(e)=>{
+                    setPassword(e.target.value)
+                }}
+            />
+            <br/>  
+            <ModalCreateAcount />
+            <button className={styles.buttonLogin} onClick={ (e) => handleSubmitLogin(e) }
+            >Login</button>
         </div>
     )
 
     return (
         <div>
-            <Button className={styles.buttonOpen} onClick={()=> abrirCerrarModal()} >open session start modal</Button>
+            <Button className={styles.buttonOpenLogin} onClick={()=> abrirCerrarModal()} > Login </Button>
             <Modal
              open = {modal}
              onClose = {abrirCerrarModal}>

@@ -7,17 +7,19 @@ import Navbar from '../Navbar/Navbar';
 
 const CreateRecipe = () => {
 
-    const {store, actions} = useContext(Context)
+    const { store, actions } = useContext(Context)
 
     //state ingredient
     const [ingredientName, setIngredientName] = useState("");
     const [ingredientPortion, setIngredientPortion] = useState("");
+    const [ingredientMeasure, setIngredientMeasure] = useState("");
 
     const handleSubmitIngredient = (e) => {
         e.preventDefault();
         actions.handleSubmitCreateIngredient(
             ingredientName,
             ingredientPortion,
+            ingredientMeasure
         )
     }
 
@@ -39,14 +41,22 @@ const CreateRecipe = () => {
                 <h2  className="titleIngredients_craeteRecipe" >Ingredients</h2>
 
                 <div className="contentOneIngredients_craeteRecipe" >
+                    
                     <input className="oneIngredient_craeteRecipe" type="text" placeholder='a ingredient'
                         onChange={(e)=>{
                             setIngredientName(e.target.value)
                         }}
                     />
+
                     <input className="portion_craeteRecipe" type="text" placeholder='portion'
                         onChange={(e) => {
                             setIngredientPortion(e.target.value)
+                        }}
+                    />
+
+                     <input className="portion_craeteRecipe" type="text" placeholder='measure'
+                        onChange={(e) => {
+                            setIngredientMeasure(e.target.value)
                         }}
                     />
                 </div>

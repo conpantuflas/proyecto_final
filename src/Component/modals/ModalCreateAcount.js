@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from '../../Store/appContext';
 import { Modal, TextField, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import ModalMyPantry from './ModalMyPantry';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -14,14 +15,18 @@ const useStyles = makeStyles((theme) => ({
         //padding: theme.spacing[2,4,3],
         padding: "16px 32px 24px",
         top: "2%",
-        left: "35%",
+        left: "30%",
         transform: "transalte(-50%, -50%)",
     },
     textField: {
-        width: "100%"
+        width: "100%",
+        marginBottom:"0.5rem"
     },
     buttonOpen: {
-        margin: "0 auto",
+     
+        color: "rgb(0, 102, 255)",
+        textTransform: "lowercase",
+        paddingBottom:"2rem"
     },
     close: {
         background: "none",
@@ -31,12 +36,21 @@ const useStyles = makeStyles((theme) => ({
     contentButtons: {
         dispaly: "inline",
     },
-    buttons: {
+    buttonCreateAcount: {
         border: "none",
         background: "#46a600",
         color: "#fff",
         fontWeight: 700,
-        padding: "0.3rem 2.5rem",
+        padding: "0.3rem 2rem",
+        borderRadius: "15px",
+        marginLeft: "1.5rem",
+    },
+    buttonAddPantry: {
+        border: "none",
+        background: "#46a600",
+        color: "#fff",
+        fontWeight: 700,
+        padding: "0.1rem 2rem",
         borderRadius: "15px",
         marginLeft: "1.5rem",
     },
@@ -45,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
         background: "none",
         color: "rgb(0, 102, 255)",
         fontWeight: 300,
-        padding: "1rem",
+        paddingTop: "0.5rem",
+        paddingBottom: "2rem",
         paddingLeft: "0.3rem",
     },
     title: {
@@ -72,7 +87,7 @@ const ModalCreateAcount = () => {
 
     // functions
 
-    const abrirCerrarModal = () => {
+const abrirCerrarModal = () => {
         setModal(!modal)
     }
 
@@ -130,7 +145,7 @@ const ModalCreateAcount = () => {
                 }}
             /> 
 
-            <TextField label="password" className={styles.textField} 
+            <TextField label="password"  type="password" className={styles.textField} 
                 onChange={(e) => {
                     setPassword(e.target.value)
                 }}
@@ -142,8 +157,8 @@ const ModalCreateAcount = () => {
             </div>
 
             <div className={styles.contentButtons}>
-                <button className={styles.buttons} onClick={(e)=>handlesubmit(e)} >Create Acount</button>
-                <button className={styles.buttons} >Add Pantry</button>
+                <button className={styles.buttonCreateAcount} onClick={(e)=>handlesubmit(e)} >Create Acount</button>
+                <button className={styles.buttonAddPantry} > <ModalMyPantry /> </button>
             </div>
 
         </form>
@@ -151,7 +166,7 @@ const ModalCreateAcount = () => {
 
     return (
         <div>
-            <Button className={styles.buttonOpen} onClick={() => abrirCerrarModal()} >open create acount modal</Button>
+            <Button className={styles.buttonOpen} onClick={() => abrirCerrarModal()} >Create Acount</Button>
             <Modal
                 open={modal}
                 onClose={abrirCerrarModal}>

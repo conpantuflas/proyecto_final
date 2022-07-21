@@ -12,9 +12,7 @@ const Home = () => {
             {/* header */}
             <div>
                 <Navbar />
-                <ModalCreateAcount />
                 <ModalSessionStart />
-                <ModalMyPantry />
                 {/* <Carrusel /> */}
             </div>
         </div>

@@ -15,11 +15,14 @@ const getState = ({setStore, getActions, getStore}) => {
             createIngredient:{
                 ingredientName: "",
                 ingredientPortion:"",
+                ingredientMeasure:"",
             },
         },
 
         actions:{
             //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
+
+            //create user
             handleSubmitCreateUser: (name, lastName, email, country, allergy, userName, password) => {
             
                 const { createUser } = getStore()
@@ -32,7 +35,7 @@ const getState = ({setStore, getActions, getStore}) => {
                 createUser.user_name = userName
                 createUser.password = password
 
-                fetch( "http://localhost:8080/crear_usuario" , {
+                fetch( "http://localhost:8080/user" , {
                 method:"POST",
                 headers:{
                     "content-type": "application/json"
@@ -40,15 +43,37 @@ const getState = ({setStore, getActions, getStore}) => {
                 body: JSON.stringify( createUser )
             })
             .then( resp => resp.json() )
-            .then( dataUser => console.log() )
+            .then( data => console.log(data) )
             },
-            handleSubmitCreateIngredient:(ingredientName, ingredientPortion) => {
+
+            //login user
+            handleSubmitLoginUser: (email,  password) => {
+            
+                const { createUser } = getStore()
+
+                createUser.email = email
+                createUser.password = password
+
+                fetch( "http://localhost:8080/login" , {
+                method:"POST",
+                headers:{
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify( createUser )
+            })
+            .then( resp => resp.json() )
+            .then( data => console.log(data) )
+            },
+
+            //create ingredient
+            handleSubmitCreateIngredient:(ingredientName, ingredientPortion, ingredientMeasure) => {
                 const {  createIngredient } = getStore()
 
                 createIngredient.ingredient_name = ingredientName
                 createIngredient.ingredient_portion = ingredientPortion
+                createIngredient.ingredient_measure = ingredientMeasure
 
-                fetch(  "http://localhost:8080/crear_ingrediente", {
+                fetch(  "http://localhost:8080/create_ingredient", {
                     method:"POST",
                     headers:{
                         "content-type": "application/json"
