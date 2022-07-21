@@ -1,0 +1,16 @@
+Explicacion
+El componente representa la vista que deberia estar al ir a los comentarios y valoracioens de los usuarios de cada receta
+Vista que aparece al clickear la vista de comentarios y valoraciones de otros usuarios y se puede hacer una propia.
+
+el flujo de los datos del modal es primero se captura desde el modal Comment_Rate_CRButton.js se pasa al Portrait.js despues al Commet_Rate.js y este al Rate_User_Card.js
+
+Test_Data a modo de prueba de datos.
+Se tienen  que usar las tablas de usuario, comentario_favorito, receta en este componente
+
+paquetes (en bash):
+npm install --global yarn
+yarn add react-icons
+
+Pendientes
+enlazar y probar con backend
+acceptButtonHandler en el CRBUtton tiene que usar al usuario activo, no al math random de ID

@@ -1,0 +1,31 @@
+.main-CR-container {
+  margin-top: 5rem;
+}
+
+.card-CR-inner-container {
+  height: 100%;
+}
+
+.card-comment-rate {
+  background-color: bisque;
+}
+
+.user-avatar {
+  vertical-align: middle;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.totalRatingStars {
+  color: #ffc107;
+}
+
+.modal-stars {
+  cursor: pointer;
+  transition: color 200ms;
+}
