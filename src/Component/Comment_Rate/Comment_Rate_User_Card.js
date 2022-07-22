@@ -7,7 +7,7 @@ import "./Comment_Rate.css";
 const CommentRateUserCard = (props) => {
   const { actions } = useContext(Context);
   useEffect(() => {
-    actions.getCommentsByRecipeId(6);
+    actions.getCommentsByRecipeId(1);
   }, []);
 
   return (

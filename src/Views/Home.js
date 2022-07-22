@@ -1,11 +1,11 @@
 import React from "react";
-import ModalCreateAcount from "../Component/modals/ModalCreateAcount";
-import ModalMyPantry from "../Component/modals/ModalMyPantry";
-import ModalSessionStart from "../Component/modals/ModalSessionStart";
-import Favoritos from "../Component/Favoritos/Favoritos";
+// import ModalCreateAcount from "../Component/modals/ModalCreateAcount";
+// import ModalMyPantry from "../Component/modals/ModalMyPantry";
+// import ModalSessionStart from "../Component/modals/ModalSessionStart";
+// import Favoritos from "../Component/Favoritos/Favoritos";
 import Comment_Rate from "../Component/Comment_Rate/Comment_Rate";
 //import Carrusel from '../Component/Carrusel/carrusel';
-import Navbar from "../Component/Navbar/Navbar";
+// import Navbar from "../Component/Navbar/Navbar";
 
 const Home = () => {
   return (

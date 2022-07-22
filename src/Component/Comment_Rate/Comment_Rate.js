@@ -10,7 +10,7 @@ const CommentsRates = () => {
   const { actions, store } = useContext(Context);
 
   useEffect(() => {
-    actions.getCommentsByRecipeId(6);
+    actions.getCommentsByRecipeId(1);
   }, []);
 
   return (
