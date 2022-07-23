@@ -5,11 +5,7 @@ import { Context } from "../../Store/appContext";
 import "./Comment_Rate.css";
 
 const CommentRateStars = () => {
-  const { actions, store } = useContext(Context);
-
-  useEffect(() => {
-    actions.getCommentsByRecipeId(1);
-  }, []);
+  const { store } = useContext(Context);
 
   return (
     <>

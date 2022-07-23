@@ -11,12 +11,10 @@ const CommentRateButton = () => {
 
   let [id_user] = useState(1);
   let [id_recipe] = useState(1);
-  //Funcionando
-  let [comment, setComment] = useState(""); //only captures text from text area
+  let [comment, setComment] = useState("");
   let [value, setValue] = useState(null);
 
   let handleModal = () => {
-    //Show's modal when button is clicked
     setShowModal(!showModal);
   };
 
@@ -30,12 +28,8 @@ const CommentRateButton = () => {
   };
 
   let acceptButtonHandler = () => {
-    if (comment != "" && value != null) {
-      actions.postComment(id_user, id_recipe, comment, value);
-      handleModal();
-    }
-    actions.getCommentsByRecipeId(id_recipe);
-    window.location.reload(false);
+    actions.postComment(id_user, id_recipe, comment, value);
+    // window.location.reload();
   };
 
   return (
@@ -47,7 +41,7 @@ const CommentRateButton = () => {
 
           <Modal.Body>
             <div className="form-group">
-              <label for="comment">Comment:</label>
+              <label htmlFor="comment">Comment:</label>
               <textarea
                 className="form-control"
                 rows="5"

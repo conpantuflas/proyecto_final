@@ -11,6 +11,11 @@ const getState = ({ setStore, getActions, getStore }) => {
         userName: "",
         password: "",
       },
+      loggedUser: {
+        email: "",
+        password: "",
+      },
+      loggedUserResponse: [],
       createIngredient: {
         ingredientName: "",
         ingredientPortion: "",
@@ -33,6 +38,7 @@ const getState = ({ setStore, getActions, getStore }) => {
         // .then((resp1) => console.log(resp1[1]))
         // .then((data) => console.log(data)); //Muestra la data pero no en el store
       },
+
       //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
       postComment: (id_user, id_recipe, comment, value) => {
         const { createComment } = getStore();
@@ -50,7 +56,30 @@ const getState = ({ setStore, getActions, getStore }) => {
           body: JSON.stringify(createComment),
         })
           .then((resp) => resp.json())
-          .then((respjs) => console.log(respjs));
+          .then((respjs) => console.log(respjs))
+          .catch((error) => console.log(error.response.data));
+        // window.location.reload(false);
+        window.setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      },
+
+      handleLogin: () => {
+        //se hace en el componente
+        const { loggedUser } = getStore();
+        loggedUser.email = "user2@mail.com";
+        loggedUser.password = "123abcA!";
+
+        fetch("http://localhost:8080/login", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loggedUser),
+        })
+          .then((resp) => resp.json())
+          .then((respjs) => setStore({ loggedUserResponse: respjs.user }));
+        // .then((resjs) => console.log(resjs)); //Falta hacer que la respuesta haga setStore, la respuesta del console log es: {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2N…NzIn0.VXQt9tId7q-UQOFg55G6GlY6PMcU01fYdlEc5vHXV-U', user: {…}}
       },
 
       handleSubmitCreateUser: (

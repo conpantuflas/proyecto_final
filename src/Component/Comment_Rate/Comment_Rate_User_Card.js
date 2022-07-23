@@ -5,11 +5,6 @@ import { FaStar } from "react-icons/fa";
 import "./Comment_Rate.css";
 
 const CommentRateUserCard = (props) => {
-  const { actions } = useContext(Context);
-  useEffect(() => {
-    actions.getCommentsByRecipeId(1);
-  }, []);
-
   return (
     <>
       <div className="card card-comment-rate">

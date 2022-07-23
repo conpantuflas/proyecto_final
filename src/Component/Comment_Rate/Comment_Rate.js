@@ -10,11 +10,13 @@ const CommentsRates = () => {
   const { actions, store } = useContext(Context);
 
   useEffect(() => {
+    actions.handleLogin(); //hace post de login
     actions.getCommentsByRecipeId(1);
   }, []);
 
   return (
     <>
+      {console.log(store.loggedUserResponse)}
       <div className="container main-CR-container d-flex flex-column mb-3">
         <CommentsRatesPortrait portraitImg={img1} />
         {store.comments[0] &&
