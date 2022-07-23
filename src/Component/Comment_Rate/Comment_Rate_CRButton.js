@@ -6,10 +6,10 @@ import StarsModal from "./Comment_Rate_Stars_Modal";
 import "./Comment_Rate.css";
 
 const CommentRateButton = () => {
-  const { actions } = useContext(Context);
+  const { actions, store } = useContext(Context);
   let [showModal, setShowModal] = useState(false);
 
-  let [id_user] = useState(1);
+  let [id_user] = useState(store.loggedUserResponse.id);
   let [id_recipe] = useState(1);
   let [comment, setComment] = useState("");
   let [value, setValue] = useState(null);

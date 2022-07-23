@@ -17,7 +17,7 @@ const Home = () => {
         {/* <ModalSessionStart /> */}
         {/* <ModalMyPantry /> */}
         {/* <Carrusel /> */}
-        <Comment_Rate />
+        {/* <Comment_Rate /> */}
       </div>
     </div>
   );
