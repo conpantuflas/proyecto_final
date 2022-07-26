@@ -27,6 +27,7 @@ const getState = ({ setStore, getActions, getStore }) => {
         value: "",
       },
       comments: [],
+      recipes: [],
     },
 
     actions: {
@@ -35,6 +36,13 @@ const getState = ({ setStore, getActions, getStore }) => {
         fetch(`http://localhost:8080/get_comment_value/${id_recipe}`)
           .then((resp) => resp.json()) //Hasta aqui esta ok
           .then((commentData) => setStore({ comments: commentData })); //
+        // .then((resp1) => console.log(resp1[1]))
+        // .then((data) => console.log(data)); //Muestra la data pero no en el store
+      },
+      getRecipes: () => {
+        fetch(`http://localhost:8080/recipes`)
+          .then((resp) => resp.json()) //Hasta aqui esta ok
+          .then((recipeData) => setStore({ recipes: recipeData })); //
         // .then((resp1) => console.log(resp1[1]))
         // .then((data) => console.log(data)); //Muestra la data pero no en el store
       },

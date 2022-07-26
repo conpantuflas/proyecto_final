@@ -35,7 +35,9 @@ const CommentRateButton = () => {
   return (
     <>
       <div>
-        <Button onClick={() => handleModal()}>Comment & Rate</Button>
+        <Button className="btn btn-secondary" onClick={() => handleModal()}>
+          Comment & Rate
+        </Button>
         <Modal show={showModal} onHide={() => handleModal()}>
           <Modal.Header closeButton>Comment & Rate</Modal.Header>
 

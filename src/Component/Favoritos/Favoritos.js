@@ -115,7 +115,6 @@ const Favoritos = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
           {favVisible.map((favorito) => {
