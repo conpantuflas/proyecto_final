@@ -6,26 +6,15 @@ import logo from "./image/chef.png";
 import menu from "./image/menu.png";
 import save from "./image/save.png";
 import user from "./image/user.png";
-import filter from "./image/filter.png";
+
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar.js";
+import NavFilters from "./NavFilters";
 
 const Navbar = () => {
   const { actions, store } = useContext(Context);
-  const [showFilterList, setShowFilterList] = useState(false);
 
-  useEffect(() => {
-    actions.getRecipes();
-    console.log(store.recipes);
-  }, []);
-
-  const handleMouseEnterFilters = (e) => {
-    setShowFilterList(true);
-  };
-  const handleMouseLeaveFilters = (e) => {
-    setShowFilterList(false);
-  };
-
+  //store.recipes en el []
   return (
     <div className="content_navbar">
       <div className="hoverMenu_navbar">
@@ -34,25 +23,8 @@ const Navbar = () => {
       <Link to="/">
         <img className="logo" src={logo} alt="x" />
       </Link>
-
       <SearchBar />
-      <div //Lista de filtros
-        type="filter-list-container"
-        onMouseEnter={handleMouseEnterFilters}
-        onMouseLeave={handleMouseLeaveFilters}
-      >
-        <img className="filter" src={filter} alt="x" /> Filters
-        {showFilterList && (
-          <div className="list-group list-group-filters">
-            <a
-              href="#"
-              className="list-group-item list-group-item-action list-group-item-dark"
-            >
-              My Recipes
-            </a>
-          </div>
-        )}
-      </div>
+      <NavFilters />
 
       <Link to="/favoritos">
         <img className="save" src={save} alt="x" />

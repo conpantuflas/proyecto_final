@@ -34,19 +34,25 @@ const getState = ({ setStore, getActions, getStore }) => {
       //°°GET°°GET°°GET°°GET°°GET°°GET°°GET°°
       getCommentsByRecipeId: (id_recipe) => {
         fetch(`http://localhost:8080/get_comment_value/${id_recipe}`)
-          .then((resp) => resp.json()) //Hasta aqui esta ok
-          .then((commentData) => setStore({ comments: commentData })); //
-        // .then((resp1) => console.log(resp1[1]))
-        // .then((data) => console.log(data)); //Muestra la data pero no en el store
+          .then((resp) => resp.json())
+          .then((commentData) => setStore({ comments: commentData }));
       },
       getRecipes: () => {
         fetch(`http://localhost:8080/recipes`)
-          .then((resp) => resp.json()) //Hasta aqui esta ok
-          .then((recipeData) => setStore({ recipes: recipeData })); //
-        // .then((resp1) => console.log(resp1[1]))
-        // .then((data) => console.log(data)); //Muestra la data pero no en el store
+          .then((resp) => resp.json())
+          .then((recipeData) => setStore({ recipes: recipeData }));
       },
-
+      getRecipeById: (id) => {
+        fetch(`http://localhost:8080/recipe_by_id/${id}`)
+          .then((resp) => resp.json())
+          .then((recipeData) => setStore({ recipes: recipeData }));
+      },
+      getRecipesByUserId: (id_user) => {
+        //LA idea es que se le pasa el usuario activo con los datos que estan en store.loggedUserResponse.user_id
+        fetch(`http://localhost:8080/recipes_by_user/${id_user}`)
+          .then((resp) => resp.json())
+          .then((recipeData) => setStore({ recipes: recipeData }));
+      },
       //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
       postComment: (id_user, id_recipe, comment, value) => {
         const { createComment } = getStore();

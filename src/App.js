@@ -18,8 +18,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/viewrecipe" element={<ViewRecipe />} />
-          <Route path="/viewrecipe/commentrate" element={<CommentsRates />} />
+          <Route path="/viewrecipe/:id" element={<ViewRecipe />} />
+          <Route
+            path="/viewrecipe/commentrate/:id"
+            element={<CommentsRates />}
+          />
           <Route path="/createrecipe" element={<CreateRecipe />} />
           <Route path="/carrusel" element={<Carrusel />} />
           <Route path="/favoritos" element={<Favoritos />} />

@@ -119,4 +119,5 @@ a {
 
 a :hover {
   color: #8a8a8a;
+  cursor: pointer;
 }

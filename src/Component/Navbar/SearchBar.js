@@ -7,6 +7,11 @@ let SearchBar = () => {
   const { actions, store } = useContext(Context);
   const [showSearchList, setShowSearchList] = useState(false);
   const [searchVal, setSearchVal] = useState("");
+  //window.location.href = `/characters/${props.id}`;
+
+  useEffect(() => {
+    actions.getRecipes();
+  }, []);
 
   const handleSearchInput = (e) => {
     const searchedWord = e.target.value;
@@ -40,11 +45,21 @@ let SearchBar = () => {
           >
             {store.recipes &&
               store.recipes.map((recipe, key) => {
-                return recipe.name_recipe.toLowerCase().includes(searchVal) ? (
-                  <a className="search-item" key={recipe.id}>
-                    <p>{recipe.name_recipe}</p>
-                  </a>
-                ) : null;
+                return (
+                  recipe.name_recipe.toLowerCase().includes(searchVal) && (
+                    <a
+                      className="search-item"
+                      key={recipe.id}
+                      onClick={() =>
+                        window.setTimeout(() => {
+                          window.location.href = `/viewrecipe/${recipe.id}`;
+                        }, 2000)
+                      } /*en vez del numero uno, poner el id*/
+                    >
+                      <p>{recipe.name_recipe}</p>
+                    </a>
+                  )
+                );
               })}
           </div>
         )}

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../Store/appContext";
 import ButtonPantryDiscount from "../Component/ViewRecipe/ButtonPantryDiscount";
 import TimeRecipe from "../Component/ViewRecipe/TimeRecipe";
 import FormRecipe from "../Component/ViewRecipe/FormRecipe";
@@ -10,6 +12,19 @@ import Steps from "../Component/ViewRecipe/Steps";
 import { Link } from "react-router-dom";
 
 const ViewRecipe = () => {
+  const params = useParams();
+  const { actions, store } = useContext(Context);
+
+  useEffect(() => {
+    window.setTimeout(() => {
+      actions.getRecipeById(params.id);
+      console.log(params.id);
+    }, 1000);
+  }, []);
+  // const filteredById = store.recipes.filter((frecipe) => {
+  //   return frecipe.id === params.id;
+  // });
+
   const style = {
     titleRecipe: {
       fontSize: "2rem",
@@ -52,16 +67,17 @@ const ViewRecipe = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
-
-      {/* all of title and button dicount */}
-      <div style={style.contentTitleAndButtonFather}>
-        <div style={style.contentTitleAndButton}>
-          <h2 style={style.titleRecipe}>Title of recipe</h2>
-          <ButtonPantryDiscount />
+      {store.recipes && console.log(store.recipes)}
+      {store.recipes && (
+        <div style={style.contentTitleAndButtonFather}>
+          <div style={style.contentTitleAndButton}>
+            {store.recipes.map((recipe) => {
+              return <h2 style={style.titleRecipe}>{recipe.name_recipe}</h2>;
+            })}
+            <ButtonPantryDiscount />
+          </div>
         </div>
-      </div>
-
+      )}
       {/* valuation */}
       <div>
         <Valuation />
