@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../Store/appContext";
 import ButtonPantryDiscount from "../Component/ViewRecipe/ButtonPantryDiscount";
@@ -14,16 +14,19 @@ import { Link } from "react-router-dom";
 const ViewRecipe = () => {
   const params = useParams();
   const { actions, store } = useContext(Context);
+  const [recipeName, setRecipeName] = useState("");
 
   useEffect(() => {
     window.setTimeout(() => {
-      actions.getRecipeById(params.id);
-      console.log(params.id);
-    }, 1000);
+      // actions.getRecipeById(params.id);
+      const filteredById = store.recipes.filter((frecipe) => {
+        return frecipe.id == params.id;
+      });
+
+      setRecipeName(filteredById[0].name_recipe);
+      console.log(params.id, filteredById[0].name_recipe);
+    }, 2000);
   }, []);
-  // const filteredById = store.recipes.filter((frecipe) => {
-  //   return frecipe.id === params.id;
-  // });
 
   const style = {
     titleRecipe: {
@@ -67,13 +70,11 @@ const ViewRecipe = () => {
 
   return (
     <div>
-      {store.recipes && console.log(store.recipes)}
       {store.recipes && (
         <div style={style.contentTitleAndButtonFather}>
           <div style={style.contentTitleAndButton}>
-            {store.recipes.map((recipe) => {
-              return <h2 style={style.titleRecipe}>{recipe.name_recipe}</h2>;
-            })}
+            {store.recipes && <h2 style={style.titleRecipe}>{recipeName}</h2>}
+
             <ButtonPantryDiscount />
           </div>
         </div>
@@ -81,13 +82,12 @@ const ViewRecipe = () => {
       {/* valuation */}
       <div>
         <Valuation />
-        <Link to="/viewrecipe/commentrate">
+        <Link to={`/viewrecipe/commentrate/${params.id}`}>
           <button type="button" className="btn btn-secondary">
             View Comments and Rate
           </button>
         </Link>
       </div>
-
       {/* slider and ingredients */}
       <div style={style.contentSliderIngredients}>
         <div style={style.contentSlider}>
@@ -97,7 +97,6 @@ const ViewRecipe = () => {
           <FormRecipe />
         </div>
       </div>
-
       {/* user, time and portions */}
       <div style={style.contentUserAndTimeRecipe}>
         <UserRecipe />
@@ -106,7 +105,6 @@ const ViewRecipe = () => {
           <Portions />
         </div>
       </div>
-
       {/* steps */}
       <div>
         <Steps />

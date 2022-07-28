@@ -28,6 +28,7 @@ const getState = ({ setStore, getActions, getStore }) => {
       },
       comments: [],
       recipes: [],
+      recipeAuth: [],
     },
 
     actions: {
@@ -53,6 +54,13 @@ const getState = ({ setStore, getActions, getStore }) => {
           .then((resp) => resp.json())
           .then((recipeData) => setStore({ recipes: recipeData }));
       },
+      getRecipesByIdUserData: (id) => {
+        //LA idea es que se le pasa el usuario activo con los datos que estan en store.loggedUserResponse.user_id
+        fetch(`http://localhost:8080/recipe_by_id_get_author/${id}`)
+          .then((resp) => resp.json())
+          .then((userData) => setStore({ recipeAuth: userData }));
+      },
+
       //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
       postComment: (id_user, id_recipe, comment, value) => {
         const { createComment } = getStore();

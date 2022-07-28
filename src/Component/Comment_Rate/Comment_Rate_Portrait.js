@@ -15,10 +15,12 @@ const CommentsRatesPortrait = (props) => {
         <div className="card-CR-inner-container d-flex flex-column align-content-between flex-wrap">
           <div className="card-inner-container-text  d-flex flex-column align-items-start mb-auto">
             <h5 className="card-title">
-              Recipe title - {<CommentRateStars />}- N comments
+              {<CommentRateStars />} {props.recipeTitle}
             </h5>
-            <h5 className="card-title">Recipe Author</h5>
-            <p className="card-text">Date of creation</p>
+            <h5 className="card-title">By: {store.recipeAuth["user_name"]}</h5>
+            <p className="card-text">
+              {props.recipeDate != null ? props.recipeDate : ""}
+            </p>
           </div>
           <div className="d-flex flex-column align-items-start ">
             {store.loggedUserResponse.length != 0 ? (
