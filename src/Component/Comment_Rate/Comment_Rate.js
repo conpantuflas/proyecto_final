@@ -42,7 +42,7 @@ const CommentsRates = () => {
             return (
               <CommentRateUserCard
                 key={i}
-                // userName={datai.user}
+                userName={datai.user}
                 // userImg={datai.user_img}
                 userComment={datai.comment}
                 userRating={datai.value}

@@ -20,7 +20,7 @@ const CommentRateUserCard = (props) => {
           <div className="col-md-10">
             <div className="card-body d-flex flex-column align-items-start text-start">
               <h5 className="card-title d-flex">
-                {"User Name"}{" "}
+                {props.userName}{" "}
                 {[...Array(props.userRating)].map((star, i) => {
                   return props.userRating == null ? (
                     ""

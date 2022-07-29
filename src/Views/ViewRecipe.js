@@ -7,9 +7,10 @@ import FormRecipe from "../Component/ViewRecipe/FormRecipe";
 import SliderRecipe from "../Component/ViewRecipe/SliderRecipe";
 import UserRecipe from "../Component/ViewRecipe/UserRecipe";
 import Portions from "../Component/ViewRecipe/Portions";
-import Valuation from "../Component/ViewRecipe/Valuation";
+// import Valuation from "../Component/ViewRecipe/Valuation";
 import Steps from "../Component/ViewRecipe/Steps";
 import { Link } from "react-router-dom";
+import CommentRateStars from "../Component/Comment_Rate/Comment_Rate_Stars";
 
 const ViewRecipe = () => {
   const params = useParams();
@@ -18,7 +19,7 @@ const ViewRecipe = () => {
 
   useEffect(() => {
     window.setTimeout(() => {
-      // actions.getRecipeById(params.id);
+      actions.getCommentsByRecipeId(params.id);
       const filteredById = store.recipes.filter((frecipe) => {
         return frecipe.id == params.id;
       });
@@ -81,7 +82,7 @@ const ViewRecipe = () => {
       )}
       {/* valuation */}
       <div>
-        <Valuation />
+        <CommentRateStars />
         <Link to={`/viewrecipe/commentrate/${params.id}`}>
           <button type="button" className="btn btn-secondary">
             View Comments and Rate
