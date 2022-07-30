@@ -89,8 +89,8 @@ const getState = ({ setStore, getActions, getStore }) => {
       handleLogin: () => {
         //se hace en el componente
         const { loggedUser } = getStore();
-        loggedUser.email = "user2@mail.com";
-        loggedUser.password = "123abcA!";
+        loggedUser.email = "user2@mail.com"; //user2@mail.com //asdasdasd@asdads.com //AG@asdads.com
+        loggedUser.password = "123abcA!"; //123abcA! // 456abcA!@@ //789abcA!@@
 
         fetch("http://localhost:8080/login", {
           method: "POST",
