@@ -1,5 +1,4 @@
 import React from 'react';
-import ModalCreateAcount from '../Component/modals/ModalCreateAcount';
 import ModalMyPantry from '../Component/modals/ModalMyPantry';
 import ModalSessionStart from '../Component/modals/ModalSessionStart';
 
@@ -13,6 +12,7 @@ const Home = () => {
             <div>
                 <Navbar />
                 <ModalSessionStart />
+                <ModalMyPantry />
                 {/* <Carrusel /> */}
             </div>
         </div>

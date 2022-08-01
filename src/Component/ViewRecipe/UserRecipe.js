@@ -1,11 +1,8 @@
-import React,{useState, useContext} from 'react';
-import {Context} from "../../Store/appContext";
+import React from 'react';
 import "./style/userRecipe.css";
 import person from "./image/person.jpg";
 
 const UserRecipe = () => {
-
-    const { store, actions } = useContext(Context)
 
     return (
         <div className="firstContent_userRecipe">

@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Carrusel from './Component/Carrusel/carrusel';
 import Favoritos from './Component/Favoritos/Favoritos';
 import Home from './Views/Home';
-import ModalCreateAcount from './Component/modals/ModalCreateAcount';
+// import ModalCreateAcount from './Component/modals/ModalCreateAcount';
 
 function App() {
   return (

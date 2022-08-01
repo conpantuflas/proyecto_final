@@ -2,14 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Favoritos.css";
 import FavoritosCartasLista from "./FavoritosCarasLista";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FavoritosCartas = (props) => {
   return (
     <>
       {/* CONTENEDOR DE CARTA */}
       <div className="card">
-        <img src={props.imagen} />
+        <img src={props.imagen} alt='x'/>
         {/* CUERPO CARTA */}
         <div className="card-body">
           {/* TITULO */}

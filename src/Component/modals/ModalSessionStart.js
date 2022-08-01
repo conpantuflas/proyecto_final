@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme)=>({
 
 const ModalSessionStart = () => {
 
-    const { store, actions } = useContext(Context)
+    const {  actions } = useContext(Context)
 
     const styles = useStyles();
 

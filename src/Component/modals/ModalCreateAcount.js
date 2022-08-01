@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ModalCreateAcount = () => {
     
-    const { store, actions } = useContext(Context)
+    const { actions } = useContext(Context)
 
     const styles = useStyles();
 

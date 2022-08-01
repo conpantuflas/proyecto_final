@@ -1,89 +1,151 @@
+const getState = ({ setStore, getActions, getStore }) => {
+  return {
+    store: {
+      //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
+      //*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user
+      createUser: {
+        name: '',
+        lastName: '',
+        email: '',
+        country: '',
+        allergy: '',
+        userName: '',
+        password: '',
+      },
 
-const getState = ({setStore, getActions, getStore}) => {
-    return{
-        store:{
-             //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
-            createUser:{
-                name:"",
-                lastName:"",
-                email:"",
-                country:"",
-                allergy:"",
-                userName:"",
-                password:""
-            },
-            createIngredient:{
-                ingredientName: "",
-                ingredientPortion:"",
-                ingredientMeasure:"",
-            },
-        },
+      //*createPantry*createPantry*createPantry*createPantry*createPantry*createPantry*createPantry*createPantry
+      createPantry: {
+        pantryId: 0,
+      },
 
-        actions:{
-            //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
+      createDetailIngredientPantry: {
+        ingredient_name: '',
+        i_details_portion: 0,
+        i_details_measure: '',
+      },
 
-            //create user
-            handleSubmitCreateUser: (name, lastName, email, country, allergy, userName, password) => {
-            
-                const { createUser } = getStore()
+      tokenLogin: {
+        token: '',
+        userId: 0,
+      },
 
-                createUser.name = name
-                createUser.last_name = lastName
-                createUser.email = email
-                createUser.country = country
-                createUser.allergy = allergy
-                createUser.user_name = userName
-                createUser.password = password
+      //createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*
+    },
 
-                fetch( "http://localhost:8080/user" , {
-                method:"POST",
-                headers:{
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify( createUser )
-            })
-            .then( resp => resp.json() )
-            .then( data => console.log(data) )
-            },
+    actions: {
+      //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
 
-            //login user
-            handleSubmitLoginUser: (email,  password) => {
-            
-                const { createUser } = getStore()
+      //createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*
 
-                createUser.email = email
-                createUser.password = password
+      //*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry
+      handleSubmitCreateIngredient: (ingredientName) => {
+        const { createDetailIngredientPantry, tokenLogin } = getStore()
 
-                fetch( "http://localhost:8080/login" , {
-                method:"POST",
-                headers:{
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify( createUser )
-            })
-            .then( resp => resp.json() )
-            .then( data => console.log(data) )
-            },
+        createDetailIngredientPantry.ingredient_name =
+          ingredientName.ingredientName
+        createDetailIngredientPantry.i_details_portion = Number(
+          ingredientName.ingredientPortion
+        )
+        createDetailIngredientPantry.i_details_measure =
+          ingredientName.ingredientMeasure
 
-            //create ingredient
-            handleSubmitCreateIngredient:(ingredientName, ingredientPortion, ingredientMeasure) => {
-                const {  createIngredient } = getStore()
+        console.log(tokenLogin.userId)
 
-                createIngredient.ingredient_name = ingredientName
-                createIngredient.ingredient_portion = ingredientPortion
-                createIngredient.ingredient_measure = ingredientMeasure
+        //detail of ingredint
+        fetch('http://localhost:8080/create_details_ingredient_pantry', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            i_details_portion: createDetailIngredientPantry.i_details_portion,
+            i_details_measure: createDetailIngredientPantry.i_details_measure,
+            ingredient_name: createDetailIngredientPantry.ingredient_name,
+            user_id: tokenLogin.userId,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => console.log(data))
+      },
 
-                fetch(  "http://localhost:8080/create_ingredient", {
-                    method:"POST",
-                    headers:{
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify( createIngredient )
-                })
-                .then( resp => resp.json())
-                .then( dataIngredient => console.log(dataIngredient))
-            },
-        }
-    }
+      //*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user*user
+      //create user
+      handleSubmitCreateUser: (
+        name,
+        lastName,
+        email,
+        country,
+        allergy,
+        userName,
+        password
+      ) => {
+        const {
+          createUser,
+          createPantry,
+          createDetailIngredientPantry,
+          tokenLogin,
+        } = getStore()
+
+        createUser.name = name
+        createUser.last_name = lastName
+        createUser.email = email
+        createUser.country = country
+        createUser.allergy = allergy
+        createUser.user_name = userName
+        createUser.password = password
+
+        fetch('http://localhost:8080/user', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(createUser),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            tokenLogin.userId = data.user.id
+            tokenLogin.token = data.access_token
+          })
+
+        fetch('http://localhost:8080/create_my_pantry', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${tokenLogin.token}`,
+          },
+          body: JSON.stringify({
+            user_id: tokenLogin.userId,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            createPantry.pantryId = data.pantryId
+            createDetailIngredientPantry.pantryId = data.pantryId
+          })
+      },
+
+      //*login-user*login-user*login-user*login-user*login-user*login-user*login-user*login-user*login-user
+      handleSubmitLoginUser: (email, password) => {
+        const { createUser, tokenLogin } = getStore()
+
+        createUser.email = email
+        createUser.password = password
+
+        fetch('http://localhost:8080/login', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(createUser),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data)
+            tokenLogin.token = data.access_token
+            tokenLogin.userId = data.user.id
+          })
+      },
+    },
+  }
 }
-export default getState;
+export default getState
