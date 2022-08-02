@@ -5,6 +5,7 @@ import { Context } from "../../Store/appContext";
 import CommentsRatesPortrait from "./Comment_Rate_Portrait";
 import CommentRateUserCard from "./Comment_Rate_User_Card";
 import "./Comment_Rate.css";
+import userImg from "./user.png";
 import img1 from "./img1.jpg";
 
 const CommentsRates = () => {
@@ -43,7 +44,7 @@ const CommentsRates = () => {
               <CommentRateUserCard
                 key={i}
                 userName={datai.user}
-                // userImg={datai.user_img}
+                userImg={userImg}
                 userComment={datai.comment}
                 userRating={datai.value}
               />
