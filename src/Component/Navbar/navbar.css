@@ -8,25 +8,53 @@
   display: flex;
   justify-content: space-evenly;
 }
-
+/********************** Menu */
 /* image */
-.menu {
-  width: 2.5rem;
-  height: 2.5rem;
+.menu-img {
+  width: 100%;
   margin: 0 auto;
-  cursor: pointer;
 }
 .hoverMenu_navbar {
   width: 3rem;
   height: 2.7rem;
-  margin-top: 0.3rem;
+  margin-top: 0.8rem;
   background-color: #8a8a8a;
   border-radius: 5px;
+  position: relative;
 }
 .hoverMenu_navbar:hover {
   background-color: #494949;
   border-radius: 5px;
 }
+
+.hoverMenu-list-group {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+  border-radius: 5px;
+  position: absolute;
+  right: -5rem;
+  top: 2.7rem;
+  overflow: hidden;
+  padding-left: 0 !important;
+  text-align: left;
+}
+
+.hoverMenu-list-group ul {
+  border-radius: 5px;
+  background-color: white;
+}
+
+.hoverMenu-list-item {
+  background-color: white;
+  list-style: none;
+  width: 8rem;
+}
+
+.hoverMenu-list-item:hover {
+  color: #8a8a8a;
+  cursor: pointer;
+}
+/********************** Logo */
+
 .logo {
   width: 4.5rem;
   height: 4.5rem;
@@ -36,6 +64,8 @@
 .logo:hover {
   transform: rotate(350deg);
 }
+
+/* *******************Filter */
 .filter {
   width: 1.6rem;
   height: 1.6rem;
@@ -68,7 +98,7 @@
   width: 6rem;
 }
 
-/* search */
+/************************** search */
 .search {
   width: 24rem;
   border-radius: 15px;

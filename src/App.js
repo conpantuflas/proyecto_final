@@ -11,6 +11,7 @@ import Home from "./Views/Home";
 import Navbar from "./Component/Navbar/Navbar";
 import CommentsRates from "./Component/Comment_Rate/Comment_Rate";
 import ModalCreateAcount from "./Component/modals/ModalCreateAcount";
+import ModalSessionStart from "./Component/modals/ModalSessionStart";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             path="/viewrecipe/commentrate/:id"
             element={<CommentsRates />}
           />
+          <Route path="/login" element={<ModalSessionStart />} />
           <Route path="/createrecipe" element={<CreateRecipe />} />
           <Route path="/carrusel" element={<Carrusel />} />
           <Route path="/favoritos" element={<Favoritos />} />

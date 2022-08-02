@@ -3,13 +3,12 @@ import { Context } from "../../Store/appContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 import logo from "./image/chef.png";
-import menu from "./image/menu.png";
 import save from "./image/save.png";
 import user from "./image/user.png";
-
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar.js";
 import NavFilters from "./NavFilters";
+import NavHoverMenu from "./Navbar_HoverMenu";
 
 const Navbar = () => {
   const { actions, store } = useContext(Context);
@@ -17,9 +16,7 @@ const Navbar = () => {
   //store.recipes en el []
   return (
     <div className="content_navbar">
-      <div className="hoverMenu_navbar">
-        <img className="menu" src={menu} alt="x" />
-      </div>
+      <NavHoverMenu />
       <Link to="/">
         <img className="logo" src={logo} alt="x" />
       </Link>
@@ -31,7 +28,7 @@ const Navbar = () => {
       </Link>
       <div className="contentUserAndUsername_navbar">
         <img className="user" src={user} alt="x" />
-        <p className="userName_navbar">@user_name</p>
+        <p className="userName_navbar">{store.loggedUserResponse.user_name}</p>
       </div>
     </div>
   );

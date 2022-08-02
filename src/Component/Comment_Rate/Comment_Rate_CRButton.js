@@ -30,7 +30,6 @@ const CommentRateButton = () => {
       } else {
         let userIdfromCommet = filterIduser[0].id_user;
         setstoreuserId(userIdfromCommet);
-        console.log(filterIduser[0].id_user, storeuserID, userIdfromCommet);
       }
     }, 3000);
   }, []);
