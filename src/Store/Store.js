@@ -30,12 +30,100 @@ const getState = ({ setStore, getActions, getStore }) => {
       },
 
       //createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*
+      createRecipe: {
+        nameRecipe: '',
+        time: '',
+        portion: 0,
+      },
+
+      createDetailIngredientRecipe: {
+        ingredient_name: '',
+        i_details_portion: 0,
+        i_details_measure: '',
+      },
+
+      createStep: {
+        step: '',
+        recipe_id: 0,
+      },
     },
 
     actions: {
       //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
 
       //createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*
+      handleSubmitCreateRecipe: (nameRecipe, time, portion) => {
+        const { createRecipe, tokenLogin } = getStore()
+
+        createRecipe.time = time
+        createRecipe.portion = portion
+        createRecipe.name_recipe = nameRecipe
+
+        fetch('http://localhost:8080/create_recipe', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            time: createRecipe.time,
+            portion: createRecipe.portion,
+            name_recipe: createRecipe.name_recipe,
+            user_id: tokenLogin.userId,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => console.log(data))
+      },
+
+      handleSubmitCreateIngredientRecipe: (ingredientName) => {
+        const { createDetailIngredientRecipe, tokenLogin, createStep } =
+          getStore()
+
+        createDetailIngredientRecipe.ingredient_name =
+          ingredientName.ingredientName
+
+        createDetailIngredientRecipe.i_details_portion = Number(
+          ingredientName.ingredientPortion
+        )
+
+        createDetailIngredientRecipe.i_details_measure =
+          ingredientName.ingredientMeasure
+
+        //detail of ingredint
+        fetch('http://localhost:8080/create_details_ingredient_recipe', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            i_details_portion: createDetailIngredientRecipe.i_details_portion,
+            i_details_measure: createDetailIngredientRecipe.i_details_measure,
+            ingredient_name: createDetailIngredientRecipe.ingredient_name,
+            user_id: tokenLogin.userId,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => (createStep.recipe_id = data.recipe_id))
+      },
+
+      handleSubmitCreateStep: (step) => {
+        const { createStep, tokenLogin } = getStore()
+
+        createStep.step = step
+
+        fetch('http://localhost:8080/create_step', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            step: createStep.step,
+            user_id: tokenLogin.userId,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => console.log(data))
+      },
 
       //*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry*pantry
       handleSubmitCreateIngredient: (ingredientName) => {
@@ -43,9 +131,11 @@ const getState = ({ setStore, getActions, getStore }) => {
 
         createDetailIngredientPantry.ingredient_name =
           ingredientName.ingredientName
+
         createDetailIngredientPantry.i_details_portion = Number(
           ingredientName.ingredientPortion
         )
+
         createDetailIngredientPantry.i_details_measure =
           ingredientName.ingredientMeasure
 

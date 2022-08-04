@@ -6,27 +6,28 @@ import portions from '../ViewRecipe/image/portions.png'
 import Navbar from '../Navbar/Navbar'
 import Ingredient from '../modals/Ingredient'
 import Step from './Step'
+import ModalSessionStart from '../modals/ModalSessionStart'
+
+const objectDataRequireIngredient = {
+  ingredientName: '',
+  ingredientPortion: '',
+  ingredientMeasure: '',
+}
+
+const objectDataRequireStep = {
+  step: '',
+}
 
 const CreateRecipe = () => {
   const { actions } = useContext(Context)
 
   //states
-  const [nameRecepe, setNameRecipe] = useState('')
+  const [nameRecipe, setNameRecipe] = useState('')
   const [time, setTime] = useState('')
   const [portion, setPortion] = useState('')
 
   const [ingredients, setIngredients] = useState([objectDataRequireIngredient])
   const [step, setStep] = useState([objectDataRequireStep])
-
-  const objectDataRequireIngredient = {
-    ingredientName: '',
-    ingredientPortion: '',
-    ingredientMeasure: '',
-  }
-
-  const objectDataRequireStep = {
-    step: '',
-  }
 
   const handleOnChange = (index, name, value) => {
     const copyIngredients = [...ingredients]
@@ -68,10 +69,19 @@ const CreateRecipe = () => {
     setStep(copyStep)
   }
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    actions.handleSubmitCreateRecipe(nameRecipe, time, portion)
+    ingredients.map((ingred) =>
+      actions.handleSubmitCreateIngredientRecipe(ingred)
+    )
+    step.map((step) => actions.handleSubmitCreateStep(step.step))
+  }
+
   return (
     <>
       <Navbar />
-
+      <ModalSessionStart />
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -176,7 +186,12 @@ const CreateRecipe = () => {
         </div>
 
         <div className="contentFinalButton_createRecipe">
-          <button className="createRecipeButton_createRecipe">
+          <button
+            className="createRecipeButton_createRecipe"
+            onClick={(e) => {
+              handleOnSubmit(e)
+            }}
+          >
             Create Recipe
           </button>
         </div>

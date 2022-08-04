@@ -102,10 +102,9 @@ const ModalMyPantry = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    ingredients.map((ingred, index) => {
-      console.log(ingred)
+    ingredients.map((ingred, index) =>
       actions.handleSubmitCreateIngredient(ingred)
-    })
+    )
   }
 
   const body = (
