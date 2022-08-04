@@ -22,7 +22,7 @@ let SearchBar = () => {
   };
 
   const handleMouseEnterFilters = (e) => {
-    if (searchVal !== null || searchVal !== "") {
+    if (searchVal !== "") {
       setShowSearchList(true);
     } else {
       setShowSearchList(false);

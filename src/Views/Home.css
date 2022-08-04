@@ -11,7 +11,18 @@
 
 .home-subcontainer-2 {
   display: flex;
-  margin-top: 8rem;
+  margin-top: 6rem;
+}
+
+.home-subcontainer-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.home-card {
+  background-color: gainsboro !important;
 }
 
 .list-group-flush {
