@@ -5,11 +5,7 @@ import { FaStar } from "react-icons/fa";
 import "./Comment_Rate.css";
 
 const CommentRateUserCard = (props) => {
-  const { actions } = useContext(Context);
-  useEffect(() => {
-    actions.getCommentsByRecipeId(6);
-  }, []);
-
+  // const { actions, store } = useContext(Context);
   return (
     <>
       <div className="card card-comment-rate">
@@ -24,7 +20,7 @@ const CommentRateUserCard = (props) => {
           <div className="col-md-10">
             <div className="card-body d-flex flex-column align-items-start text-start">
               <h5 className="card-title d-flex">
-                {"User Name"}{" "}
+                {props.userName}{" "}
                 {[...Array(props.userRating)].map((star, i) => {
                   return props.userRating == null ? (
                     ""
