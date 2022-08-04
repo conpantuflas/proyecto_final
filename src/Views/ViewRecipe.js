@@ -19,13 +19,12 @@ const ViewRecipe = () => {
 
   useEffect(() => {
     window.setTimeout(() => {
-      actions.getCommentsByRecipeId(params.id);
-      const filteredById = store.recipes.filter((frecipe) => {
-        return frecipe.id == params.id;
-      });
-
-      setRecipeName(filteredById[0].name_recipe);
-      console.log(params.id, filteredById[0].name_recipe);
+      // actions.getCommentsByRecipeId(params.id);
+      // const filteredById = store.recipes.filter((frecipe) => {
+      //   return frecipe.id == params.id;
+      // });
+      // setRecipeName(filteredById[0].name_recipe);
+      // console.log(params.id, filteredById[0].name_recipe);
     }, 2000);
   }, []);
 

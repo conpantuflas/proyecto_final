@@ -7,10 +7,13 @@ let SearchBar = () => {
   const { actions, store } = useContext(Context);
   const [showSearchList, setShowSearchList] = useState(false);
   const [searchVal, setSearchVal] = useState("");
-  //window.location.href = `/characters/${props.id}`;
 
   useEffect(() => {
-    actions.getRecipes();
+    // actions.getRecipes();
+    actions.getIngredients();
+    window.setTimeout(() => {
+      console.log(store.ingredients_all);
+    }, 2000);
   }, []);
 
   const handleSearchInput = (e) => {
@@ -19,11 +22,16 @@ let SearchBar = () => {
   };
 
   const handleMouseEnterFilters = (e) => {
-    setShowSearchList(true);
+    if (searchVal !== null || searchVal !== "") {
+      setShowSearchList(true);
+    } else {
+      setShowSearchList(false);
+    }
   };
   const handleMouseLeaveFilters = (e) => {
     setShowSearchList(false);
   };
+
   return (
     <div className="search-container">
       <form>
@@ -43,20 +51,22 @@ let SearchBar = () => {
             onMouseEnter={handleMouseEnterFilters}
             onMouseLeave={handleMouseLeaveFilters}
           >
-            {store.recipes &&
-              store.recipes.map((recipe, key) => {
+            {store.ingredients_all &&
+              store.ingredients_all.map((ingredient, key) => {
                 return (
-                  recipe.name_recipe.toLowerCase().includes(searchVal) && (
+                  ingredient.ingredient_name
+                    .toLowerCase()
+                    .includes(searchVal) && (
                     <a
                       className="search-item"
-                      key={recipe.id}
+                      key={key}
                       onClick={() =>
                         window.setTimeout(() => {
-                          window.location.href = `/viewrecipe/${recipe.id}`;
+                          window.location.href = `/viewrecipe/${ingredient.id_recipe}`;
                         }, 2000)
                       } /*en vez del numero uno, poner el id*/
                     >
-                      <p>{recipe.name_recipe}</p>
+                      <p>{ingredient.recipe_name}</p>
                     </a>
                   )
                 );

@@ -29,6 +29,9 @@ const getState = ({ setStore, getActions, getStore }) => {
       comments: [],
       recipes: [],
       recipeAuth: [],
+      ingredientsById: [],
+      ingredients_all: [],
+      recipes_all: [],
     },
 
     actions: {
@@ -41,7 +44,7 @@ const getState = ({ setStore, getActions, getStore }) => {
       getRecipes: () => {
         fetch(`http://localhost:8080/recipes`)
           .then((resp) => resp.json())
-          .then((recipeData) => setStore({ recipes: recipeData }));
+          .then((recipeData) => setStore({ recipes_all: recipeData }));
       },
       getRecipeById: (id) => {
         fetch(`http://localhost:8080/recipe_by_id/${id}`)
@@ -59,6 +62,20 @@ const getState = ({ setStore, getActions, getStore }) => {
         fetch(`http://localhost:8080/recipe_by_id_get_author/${id}`)
           .then((resp) => resp.json())
           .then((userData) => setStore({ recipeAuth: userData }));
+      },
+      getIngredients: () => {
+        fetch(`http://localhost:8080/ingredient`)
+          .then((resp) => resp.json())
+          .then((ingredientsData) =>
+            setStore({ ingredients_all: ingredientsData })
+          );
+      },
+      getIngredientsByRecipeId: (id) => {
+        fetch(`http://localhost:8080/ingredient_recipe_id/${id}`)
+          .then((resp) => resp.json())
+          .then((ingredientsData) =>
+            setStore({ ingredientsById: ingredientsData })
+          );
       },
 
       //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°

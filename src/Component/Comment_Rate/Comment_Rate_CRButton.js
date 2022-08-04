@@ -19,17 +19,19 @@ const CommentRateButton = () => {
   useEffect(() => {
     //probar con un for
     window.setTimeout(() => {
-      let storedComments = [...store.comments[0]];
-      const filterIduser = storedComments.filter((comment) => {
-        return comment.id_user == store.loggedUserResponse.id || undefined;
-      });
-      if (filterIduser == undefined) {
-        console.log("no comment for user id");
-      } else if (filterIduser[0] == undefined) {
-        console.log("no comment for user id");
-      } else {
-        let userIdfromCommet = filterIduser[0].id_user;
-        setstoreuserId(userIdfromCommet);
+      if (store.comments[0] != undefined) {
+        let storedComments = [...store.comments[0]];
+        const filterIduser = storedComments.filter((comment) => {
+          return comment.id_user == store.loggedUserResponse.id || undefined;
+        });
+        if (filterIduser == undefined) {
+          console.log("no comment for user id");
+        } else if (filterIduser[0] == undefined) {
+          console.log("no comment for user id");
+        } else {
+          let userIdfromCommet = filterIduser[0].id_user;
+          setstoreuserId(userIdfromCommet);
+        }
       }
     }, 3000);
   }, []);

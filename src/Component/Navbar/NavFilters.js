@@ -17,12 +17,7 @@ const NavFilters = () => {
   };
 
   useEffect(() => {
-    actions.handleLogin(); //Emtrega data del usuario registrado con email y mail
-    // const timer = setTimeout(() => {
-    //   console.log(store.loggedUserResponse["id"]); // devuelve el id del usuario logeado. Usarlo para filtrar
-    // }, 3000);
-    // timer();
-    // actions.getRecipesByUserId(store.);
+    actions.handleLogin();
   }, []);
 
   return (
@@ -33,8 +28,8 @@ const NavFilters = () => {
     >
       <img className="filter" src={filter} alt="x" /> Filters
       {showFilterList && (
-        <div className="list-group list-group-filters">
-          <div className="form-check">
+        <div className="list-group-container list-group-filters">
+          <div className="form-check my-recipes">
             <input
               className="form-check-input"
               type="checkbox"
@@ -56,6 +51,18 @@ const NavFilters = () => {
               My Recipes
             </label>
           </div>
+          {/* <div className="form-check ingredients">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckChecked"
+              readOnly
+            />
+            <label className="form-check-label" htmlFor="flexCheckChecked">
+              By Ingredients
+            </label>
+          </div> */}
         </div>
       )}
     </div>

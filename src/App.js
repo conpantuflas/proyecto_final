@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ViewRecipe from "./Views/ViewRecipe";
 import CreateRecipe from "./Component/CreateRecipe/CreateRecipe";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Carrusel from "./Component/Carrusel/carrusel";
+import Carrusel from "./Component/Carrousel/carrousel";
 import Favoritos from "./Component/Favoritos/Favoritos";
 import Home from "./Views/Home";
 import Navbar from "./Component/Navbar/Navbar";
