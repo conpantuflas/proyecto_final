@@ -17,7 +17,7 @@ const CommentsRates = () => {
   // const []
 
   useEffect(() => {
-    actions.handleLogin(); //hace post de login, esto se deberia quitar de aqui despues
+    // actions.handleLogin(); //hace post de login, esto se deberia quitar de aqui despues
     actions.getCommentsByRecipeId(params.id);
     actions.getRecipesByIdUserData(params.id);
     actions.getRecipeById(params.id);
@@ -33,8 +33,7 @@ const CommentsRates = () => {
 
   return (
     <>
-      {/* {console.log(store.loggedUserResponse)} */}
-      <div className="container main-CR-container d-flex flex-column mb-3">
+      <div className="container main-CR-container d-flex flex-column align-items-center mb-3">
         <CommentsRatesPortrait
           portraitImg={img1}
           recipeTitle={recipeName}

@@ -106,8 +106,8 @@ const getState = ({ setStore, getActions, getStore }) => {
       handleLogin: () => {
         //se hace en el componente
         const { loggedUser } = getStore();
-        loggedUser.email = "AG@asdads.com"; //user2@mail.com //asdasdasd@asdads.com //AG@asdads.com
-        loggedUser.password = "789abcA!@@"; //123abcA! // 456abcA!@@ //789abcA!@@
+        loggedUser.email = "user2@mail.com"; //user2@mail.com //asdasdasd@asdads.com //AG@asdads.com
+        loggedUser.password = "123abcA!"; //123abcA! // 456abcA!@@ //789abcA!@@
 
         fetch("http://localhost:8080/login", {
           method: "POST",
@@ -119,6 +119,11 @@ const getState = ({ setStore, getActions, getStore }) => {
           .then((resp) => resp.json())
           .then((respjs) => setStore({ loggedUserResponse: respjs.user }));
         // .then((resjs) => console.log(resjs)); //Falta hacer que la respuesta haga setStore, la respuesta del console log es: {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2N…NzIn0.VXQt9tId7q-UQOFg55G6GlY6PMcU01fYdlEc5vHXV-U', user: {…}}
+      },
+
+      handleLogout: () => {
+        const { loggedUser } = getStore();
+        setStore({ loggedUserResponse: [] });
       },
 
       handleSubmitCreateUser: (

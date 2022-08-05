@@ -16,9 +16,9 @@ const NavFilters = () => {
     setShowFilterList(false);
   };
 
-  useEffect(() => {
-    actions.handleLogin();
-  }, []);
+  // useEffect(() => {
+  //   actions.handleLogin();
+  // }, []);
 
   return (
     <div

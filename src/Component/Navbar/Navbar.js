@@ -28,7 +28,11 @@ const Navbar = () => {
       </Link>
       <div className="contentUserAndUsername_navbar">
         <img className="user" src={user} alt="x" />
-        <p className="userName_navbar">{store.loggedUserResponse.user_name}</p>
+        <p className="userName_navbar">
+          {store.loggedUserResponse.user_name !== ""
+            ? store.loggedUserResponse.user_name
+            : "No user logged"}
+        </p>
       </div>
     </div>
   );

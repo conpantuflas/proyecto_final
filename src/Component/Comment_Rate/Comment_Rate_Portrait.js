@@ -9,7 +9,7 @@ const CommentsRatesPortrait = (props) => {
   const { store } = useContext(Context);
 
   return (
-    <div className="card bg-dark text-white d-flex">
+    <div className="card bg-dark text-white d-flex" style={{ maxWidth: 850 }}>
       <img src={props.portraitImg} className="card-img" alt="..." />
       <div className="card-img-overlay">
         <div className="card-CR-inner-container d-flex flex-column align-content-between flex-wrap">

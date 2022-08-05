@@ -10,13 +10,14 @@ let SearchBar = () => {
 
   useEffect(() => {
     // actions.getRecipes();
-    actions.getIngredients();
+    // actions.getIngredients();
     window.setTimeout(() => {
-      console.log(store.ingredients_all);
+      // console.log(store.ingredients_all);
     }, 2000);
   }, []);
 
   const handleSearchInput = (e) => {
+    setShowSearchList(false);
     const searchedWord = e.target.value;
     setSearchVal(searchedWord);
   };

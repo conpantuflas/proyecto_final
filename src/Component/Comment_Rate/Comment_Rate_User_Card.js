@@ -8,7 +8,7 @@ const CommentRateUserCard = (props) => {
   // const { actions, store } = useContext(Context);
   return (
     <>
-      <div className="card card-comment-rate">
+      <div className="card card-comment-rate " style={{ maxWidth: 850 }}>
         <div className="row g-0">
           <div className="col-md-2">
             <img
