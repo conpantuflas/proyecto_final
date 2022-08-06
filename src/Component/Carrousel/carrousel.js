@@ -1,14 +1,14 @@
 import React from "react";
 import Slider from "infinite-react-carousel";
 
-import "./carrusel.css";
+import "./carrousel.css";
 
 import img1 from "./img1.jpg";
 import img2 from "./img2.jpg";
 import img3 from "./img3.jpg";
 import img4 from "./img4.jpg";
 
-const Carrusel = () => {
+const Carrousel = () => {
   const images = [
     { id: "1", image: img1 },
     { id: "2", image: img2 },
@@ -28,7 +28,7 @@ const Carrusel = () => {
       >
         {images.map((image) => (
           <div key={image.id} className="slider__content--item">
-            <img src={image.image} alt="Imagen de referencia"></img>
+            <img src={image.image} alt="Ref Image"></img>
           </div>
         ))}
       </Slider>
@@ -36,4 +36,4 @@ const Carrusel = () => {
   );
 };
 
-export default Carrusel;
+export default Carrousel;

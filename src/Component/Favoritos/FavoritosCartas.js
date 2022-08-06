@@ -7,8 +7,8 @@ const FavoritosCartas = (props) => {
   return (
     <>
       {/* CONTENEDOR DE CARTA */}
-      <div className="card">
-        <img src={props.imagen} alt='x'/>
+      <div className="card-fav">
+        <img src={props.imagen} />
         {/* CUERPO CARTA */}
         <div className="card-body">
           {/* TITULO */}
