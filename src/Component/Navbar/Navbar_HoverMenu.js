@@ -16,7 +16,11 @@ const NavHoverMenu = () => {
 
   let handleLogin = (e) => {
     actions.handleLogin();
-    console.log(store.loggedUserResponse);
+    actions.handleLoginToken();
+    window.setTimeout(() => {
+      console.log(store.loggedUserResponse);
+      console.log(store.active_token);
+    }, 2000);
   };
 
   let handleLogout = (e) => {
