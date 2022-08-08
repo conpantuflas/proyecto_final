@@ -146,7 +146,7 @@ const getState = ({ setStore, getActions, getStore }) => {
       },
 
       handleLogout: () => {
-        const { loggedUser } = getStore()
+        // const { loggedUser } = getStore()
         setStore({ loggedUserResponse: [] })
       },
 
@@ -270,11 +270,11 @@ const getState = ({ setStore, getActions, getStore }) => {
         }, 2000)
       },
 
-      handleLogin: () => {
+      handleLogin: (email, password) => {
         //se hace en el componente
         const { loggedUser } = getStore()
-        loggedUser.email = 'AG@asdads.com' //user2@mail.com //asdasdasd@asdads.com //AG@asdads.com
-        loggedUser.password = '789abcA!@@' //123abcA! // 456abcA!@@ //789abcA!@@
+        loggedUser.email = email //user2@mail.com //asdasdasd@asdads.com //AG@asdads.com
+        loggedUser.password = password //123abcA! // 456abcA!@@ //789abcA!@@
 
         fetch('http://localhost:8080/login', {
           method: 'POST',

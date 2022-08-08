@@ -1,10 +1,10 @@
-import React, { useEffect, useContext } from "react";
-import { Context } from "../../Store/appContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FaStar } from "react-icons/fa";
-import "./Comment_Rate.css";
+import React from 'react'
+// import { Context } from '../../Store/appContext'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { FaStar } from 'react-icons/fa'
+import './Comment_Rate.css'
 
-const CommentRateUserCard = (props) => {
+const CommentRateUserCard = props => {
   // const { actions, store } = useContext(Context);
   return (
     <>
@@ -20,13 +20,13 @@ const CommentRateUserCard = (props) => {
           <div className="col-md-10">
             <div className="card-body d-flex flex-column align-items-start text-start">
               <h5 className="card-title d-flex">
-                {props.userName}{" "}
+                {props.userName}{' '}
                 {[...Array(props.userRating)].map((star, i) => {
                   return props.userRating == null ? (
-                    ""
+                    ''
                   ) : (
                     <FaStar key={i} className="totalRatingStars" />
-                  );
+                  )
                 })}
               </h5>
               <p className="card-text">{props.userComment}</p>
@@ -35,7 +35,7 @@ const CommentRateUserCard = (props) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CommentRateUserCard;
+export default CommentRateUserCard

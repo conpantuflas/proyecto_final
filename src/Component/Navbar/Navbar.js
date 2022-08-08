@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../Store/appContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './navbar.css'
@@ -7,11 +7,11 @@ import save from './image/save.png'
 import user from './image/user.png'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
-import NavFilters from './NavFilters'
+// import NavFilters from './NavFilters'
 import NavHoverMenu from './Navbar_HoverMenu'
 
 const Navbar = () => {
-  const { actions, store } = useContext(Context)
+  const { store } = useContext(Context)
 
   //store.recipes en el []
   return (
