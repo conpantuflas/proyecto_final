@@ -26,10 +26,10 @@ const Navbar = () => {
       <Link to="/favoritos">
         <img className="save" src={save} alt="x" />
       </Link>
-      <div className="contentUserAndUsername_navbar">
+      <Link to="/profile" className="contentUserAndUsername_navbar">
         <img className="user" src={user} alt="x" />
-        <p className="userName_navbar">{store.loggedUserResponse.user_name}</p>
-      </div>
+        {/* <p className="userName_navbar">{store.loggedUserResponse.user_name}</p> */}
+      </Link>
     </div>
   );
 };

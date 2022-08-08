@@ -14,7 +14,7 @@ import CommentRateStars from "../Component/Comment_Rate/Comment_Rate_Stars";
 
 const ViewRecipe = () => {
   const params = useParams();
-  const { actions, store } = useContext(Context);
+  const { store } = useContext(Context);
   const [recipeName, setRecipeName] = useState("");
 
   useEffect(() => {

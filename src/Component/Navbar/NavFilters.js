@@ -3,7 +3,6 @@ import { Context } from "../../Store/appContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 import filter from "./image/filter.png";
-import { Link } from "react-router-dom";
 
 const NavFilters = () => {
   const [showFilterList, setShowFilterList] = useState(false);
@@ -16,9 +15,9 @@ const NavFilters = () => {
     setShowFilterList(false);
   };
 
-  useEffect(() => {
-    actions.handleLogin();
-  }, []);
+  // useEffect(() => {
+  //   actions.handleLogin();
+  // }, []);
 
   return (
     <div
