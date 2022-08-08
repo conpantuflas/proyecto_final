@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../../Store/appContext";
 import { Modal, TextField, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import ModalMyPantry from './ModalMyPantry';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModalCreateAcount = () => {
-  const { store, actions } = useContext(Context);
+  const {actions } = useContext(Context);
 
   const styles = useStyles();
 
@@ -84,7 +85,7 @@ const ModalCreateAcount = () => {
       country,
       allergy,
       userName,
-      password
+      password,
     );
   };
 
