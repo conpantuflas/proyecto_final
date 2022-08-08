@@ -8,19 +8,29 @@ let SearchBar = () => {
   const [showSearchList, setShowSearchList] = useState(false)
   const [searchVal, setSearchVal] = useState('')
 
-  const handleSearchInput = (e) => {
+  useEffect(() => {
+    // actions.getRecipes();
+    // actions.getIngredients();
+    window.setTimeout(() => {
+      // console.log(store.ingredients_all);
+    }, 2000)
+  }, [])
+
+  const handleSearchInput = e => {
+    setShowSearchList(false)
     const searchedWord = e.target.value
     setSearchVal(searchedWord)
   }
 
-  const handleMouseEnterFilters = (e) => {
+  const handleMouseEnterFilters = e => {
     if (searchVal !== null || searchVal !== '') {
       setShowSearchList(true)
     } else {
       setShowSearchList(false)
     }
   }
-  const handleMouseLeaveFilters = (e) => {
+
+  const handleMouseLeaveFilters = e => {
     setShowSearchList(false)
   }
 

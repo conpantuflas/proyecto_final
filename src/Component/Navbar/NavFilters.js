@@ -9,10 +9,10 @@ const NavFilters = () => {
   const [showFilterList, setShowFilterList] = useState(false)
   const { actions, store } = useContext(Context)
   const [myRecipesClick, setMyRecipesClick] = useState(false)
-  const handleMouseEnterFilters = (e) => {
+  const handleMouseEnterFilters = e => {
     setShowFilterList(true)
   }
-  const handleMouseLeaveFilters = (e) => {
+  const handleMouseLeaveFilters = e => {
     setShowFilterList(false)
   }
 

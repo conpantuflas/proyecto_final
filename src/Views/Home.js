@@ -1,5 +1,3 @@
-import ModalMyPantry from '../Component/modals/ModalMyPantry'
-import ModalSessionStart from '../Component/modals/ModalSessionStart'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Home.css'
@@ -8,6 +6,10 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
+import HomeCards from './HomeCards'
+
+import ModalMyPantry from '../Component/modals/ModalMyPantry'
+import ModalSessionStart from '../Component/modals/ModalSessionStart'
 
 const Home = () => {
   return (
@@ -56,7 +58,9 @@ const Home = () => {
           </li>
         </ul>
       </div>
-      <div className="home-subcontainer-3"></div>
+      <div className="home-subcontainer-3">
+        <HomeCards />
+      </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ import logo from './image/chef.png'
 import save from './image/save.png'
 import user from './image/user.png'
 import { Link } from 'react-router-dom'
-import SearchBar from './SearchBar.js'
+import SearchBar from './SearchBar'
 import NavFilters from './NavFilters'
 import NavHoverMenu from './Navbar_HoverMenu'
 
@@ -27,7 +27,11 @@ const Navbar = () => {
       </Link>
       <div className="contentUserAndUsername_navbar">
         <img className="user" src={user} alt="x" />
-        <p className="userName_navbar">{store.loggedUserResponse.user_name}</p>
+        <p className="userName_navbar">
+          {store.loggedUserResponse.user_name !== ''
+            ? store.loggedUserResponse.user_name
+            : 'No user logged'}
+        </p>
       </div>
     </div>
   )
