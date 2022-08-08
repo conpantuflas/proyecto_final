@@ -1413,7 +1413,7 @@
   "resolved" "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz"
   "version" "1.1.3"
 
-"@popperjs/core@^2.10.2", "@popperjs/core@^2.11.5":
+"@popperjs/core@^2.11.5":
   "integrity" "sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw=="
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
   "version" "2.11.5"
@@ -1433,9 +1433,9 @@
     "dequal" "^2.0.2"
 
 "@restart/ui@^1.2.0":
-  "integrity" "sha512-VRb330/6tDaHAHRkqe0GOawuj+hcZM7Zp5piWk/3AVwW18+0sQxGqqFeiH1ZeEMdn7w+D8bZPaY3QoLTmDKcGg=="
-  "resolved" "https://registry.npmjs.org/@restart/ui/-/ui-1.3.0.tgz"
-  "version" "1.3.0"
+  "integrity" "sha512-MYvMs2eeZTHu2dBJHOXKx72vxzEZeWbZx2z1QjeXq62iYjpjIyukBC2ZEy8x+sb9Gl0AiOiHkPXrl1wn95aOGQ=="
+  "resolved" "https://registry.npmjs.org/@restart/ui/-/ui-1.3.1.tgz"
+  "version" "1.3.1"
   dependencies:
     "@babel/runtime" "^7.18.3"
     "@popperjs/core" "^2.11.5"
@@ -2657,10 +2657,10 @@
   "resolved" "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
 
-"bootstrap@^5.1.3":
-  "integrity" "sha512-fcQztozJ8jToQWXxVuEyXWW+dSo8AiXWKwiSSrKWsRB/Qt+Ewwza+JWoLKiTuQLaEPhdNAJ7+Dosc9DOIqNy7Q=="
-  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-5.1.3.tgz"
-  "version" "5.1.3"
+"bootstrap@^5.2.0":
+  "integrity" "sha512-qlnS9GL6YZE6Wnef46GxGv1UpGGzAwO0aPL1yOjzDIJpeApeMvqV24iL+pjr2kU4dduoBA9fINKWKgMToobx9A=="
+  "resolved" "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.0.tgz"
+  "version" "5.2.0"
 
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="
@@ -9085,6 +9085,11 @@
   "integrity" "sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew=="
   "resolved" "https://registry.npmjs.org/prettier/-/prettier-1.19.1.tgz"
   "version" "1.19.1"
+
+"prettier@^2.7.1":
+  "integrity" "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g=="
+  "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.7.1.tgz"
+  "version" "2.7.1"
 
 "pretty-bytes@^4.0.2":
   "integrity" "sha512-yJAF+AjbHKlxQ8eezMd/34Mnj/YTQ3i6kLzvVsH4l/BfIFtp444n0wVbnsn66JimZ9uBofv815aRp1zCppxlWw=="

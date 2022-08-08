@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Modal, TextField, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -52,10 +53,11 @@ const ModalSessionStart = () => {
   const styles = useStyles();
 
   const [modal, setModal] = useState(false);
-
+  
   const abrirCerrarModal = () => {
     setModal(!modal);
   };
+
 
   const body = (
     <div className={styles.modal}>

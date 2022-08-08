@@ -10,7 +10,6 @@ import Favoritos from "./Component/Favoritos/Favoritos";
 import Home from "./Views/Home";
 import Navbar from "./Component/Navbar/Navbar";
 import CommentsRates from "./Component/Comment_Rate/Comment_Rate";
-import ModalCreateAcount from "./Component/modals/ModalCreateAcount";
 import ModalSessionStart from "./Component/modals/ModalSessionStart";
 
 function App() {

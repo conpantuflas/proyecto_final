@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Favoritos.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FavoritosCartasLista = (props) => {
   const [toggleState, setToggleState] = useState(1);

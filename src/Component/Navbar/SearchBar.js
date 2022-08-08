@@ -1,36 +1,28 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../Store/appContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css";
+import React, { useState, useEffect, useContext } from 'react'
+import { Context } from '../../Store/appContext'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './navbar.css'
 
 let SearchBar = () => {
-  const { actions, store } = useContext(Context);
-  const [showSearchList, setShowSearchList] = useState(false);
-  const [searchVal, setSearchVal] = useState("");
-
-  useEffect(() => {
-    // actions.getRecipes();
-    actions.getIngredients();
-    window.setTimeout(() => {
-      console.log(store.ingredients_all);
-    }, 2000);
-  }, []);
+  const { store } = useContext(Context)
+  const [showSearchList, setShowSearchList] = useState(false)
+  const [searchVal, setSearchVal] = useState('')
 
   const handleSearchInput = (e) => {
-    const searchedWord = e.target.value;
-    setSearchVal(searchedWord);
-  };
+    const searchedWord = e.target.value
+    setSearchVal(searchedWord)
+  }
 
   const handleMouseEnterFilters = (e) => {
-    if (searchVal !== null || searchVal !== "") {
-      setShowSearchList(true);
+    if (searchVal !== null || searchVal !== '') {
+      setShowSearchList(true)
     } else {
-      setShowSearchList(false);
+      setShowSearchList(false)
     }
-  };
+  }
   const handleMouseLeaveFilters = (e) => {
-    setShowSearchList(false);
-  };
+    setShowSearchList(false)
+  }
 
   return (
     <div className="search-container">
@@ -62,20 +54,20 @@ let SearchBar = () => {
                       key={key}
                       onClick={() =>
                         window.setTimeout(() => {
-                          window.location.href = `/viewrecipe/${ingredient.id_recipe}`;
+                          window.location.href = `/viewrecipe/${ingredient.id_recipe}`
                         }, 2000)
                       } /*en vez del numero uno, poner el id*/
                     >
                       <p>{ingredient.recipe_name}</p>
                     </a>
                   )
-                );
+                )
               })}
           </div>
         )}
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
