@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../Store/appContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css";
-import filter from "./image/filter.png";
+import React, { useState, useEffect, useContext } from 'react'
+import { Context } from '../../Store/appContext'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './navbar.css'
+import filter from './image/filter.png'
 
 const NavFilters = () => {
-  const [showFilterList, setShowFilterList] = useState(false);
-  const { actions, store } = useContext(Context);
-  const [myRecipesClick, setMyRecipesClick] = useState(false);
+  const [showFilterList, setShowFilterList] = useState(false)
+  const { actions, store } = useContext(Context)
+  const [myRecipesClick, setMyRecipesClick] = useState(false)
   const handleMouseEnterFilters = (e) => {
-    setShowFilterList(true);
-  };
+    setShowFilterList(true)
+  }
   const handleMouseLeaveFilters = (e) => {
-    setShowFilterList(false);
-  };
-
-  // useEffect(() => {
-  //   actions.handleLogin();
-  // }, []);
+    setShowFilterList(false)
+  }
 
   return (
     <div
@@ -43,7 +39,7 @@ const NavFilters = () => {
               readOnly
             />
             {myRecipesClick === true
-              ? actions.getRecipesByUserId(store.loggedUserResponse["id"])
+              ? actions.getRecipesByUserId(store.loggedUserResponse['id'])
               : actions.getRecipes()}
 
             <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -65,7 +61,7 @@ const NavFilters = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default NavFilters;
+export default NavFilters

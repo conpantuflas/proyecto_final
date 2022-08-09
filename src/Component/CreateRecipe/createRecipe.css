@@ -30,7 +30,7 @@
 .contentAddImage_createRecipe{
     position:relative;
     padding: 10px;
-    width: 26%;
+    width: 28%;
     height: 17rem;
     background-color: #e9e9e9;
     border-radius:15px ;
@@ -60,7 +60,7 @@
 
 .contentIngredient_craeteRecipe{
     background-color: #e9e9e9;
-    width: 30%;
+    width: 50%;
     padding: 1rem;
     height: 16rem;
     border-radius: 15px;
@@ -71,7 +71,7 @@
 }
 
 .contentOneIngredients_craeteRecipe{
-    max-height: 12rem;
+    max-height: 10rem;
     overflow-y: scroll;
 }
 
@@ -89,7 +89,7 @@
 
 .portion_craeteRecipe{
     background: #c7c6c6;
-    width: 20%;
+    width: 10%;
     padding: 0.5rem;
     border-radius:20px;
     font-size: 0.8rem;
@@ -138,7 +138,7 @@
 /* steps */
 
 .stepContent_createRecipe{
-    display: flex;
+    /* display: flex; */
     margin:0 auto;
     margin-bottom: 3rem;
     background-color: #e9e9e9;
@@ -150,14 +150,12 @@
     position:relative;
     padding: 10px;
     width: 26%;
-    height: 17rem;
     background-color:#c7c6c6;
     border-radius:15px ;
 }
 
 .setpDescription_createRecipe{
     width: 40rem;
-    height: 12rem;
     margin-left: 2rem;
     background-color: #c7c6c6;
     border: none;
@@ -192,4 +190,10 @@
     transform: rotate(5deg) scale(1.1);
 	transform-origin: top center; 
 }
+
+.contentStep {
+    max-height: 8rem;
+    width:100%;
+    overflow-y: auto;
+  }
 

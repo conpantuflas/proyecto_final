@@ -1,82 +1,83 @@
-import React, { useState, useContext } from "react";
-import { Context } from "../../Store/appContext";
-import { Modal, TextField, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useContext } from 'react'
+import { Context } from '../../Store/appContext'
+import { Modal, TextField, Button } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import ModalMyPantry from './ModalMyPantry'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    position: "absolute",
-    width: "500px",
-    background: "#fff",
-    border: "1px solid #828282",
-    borderRadius: "12px",
+    position: 'absolute',
+    width: '500px',
+    background: '#fff',
+    border: '1px solid #828282',
+    borderRadius: '12px',
     boxShadow: theme.shadows[5],
     //padding: theme.spacing[2,4,3],
-    padding: "16px 32px 24px",
-    top: "2%",
-    left: "35%",
-    transform: "transalte(-50%, -50%)",
+    padding: '16px 32px 24px',
+    top: '2%',
+    left: '35%',
+    transform: 'transalte(-50%, -50%)',
   },
   textField: {
-    width: "100%",
+    width: '100%',
   },
   buttonOpen: {
-    margin: "0 auto",
+    margin: '0 auto',
   },
   close: {
-    background: "none",
-    border: "none",
-    marginLeft: "27rem",
+    background: 'none',
+    border: 'none',
+    marginLeft: '27rem',
   },
   contentButtons: {
-    dispaly: "inline",
+    dispaly: 'inline',
   },
   buttons: {
-    border: "none",
-    background: "#46a600",
-    color: "#fff",
+    border: 'none',
+    background: '#46a600',
+    color: '#fff',
     fontWeight: 700,
-    padding: "0.3rem 2.5rem",
-    borderRadius: "15px",
-    marginLeft: "1.5rem",
+    padding: '0.3rem 2.5rem',
+    borderRadius: '15px',
+    marginLeft: '1.5rem',
   },
   buttonNotificationEmail: {
-    border: "none",
-    background: "none",
-    color: "rgb(0, 102, 255)",
+    border: 'none',
+    background: 'none',
+    color: 'rgb(0, 102, 255)',
     fontWeight: 300,
-    padding: "1rem",
-    paddingLeft: "0.3rem",
+    padding: '1rem',
+    paddingLeft: '0.3rem',
   },
   title: {
     margin: 0,
   },
-}));
+}))
 
 const ModalCreateAcount = () => {
-  const { actions } = useContext(Context);
+  const { actions } = useContext(Context)
 
-  const styles = useStyles();
+  const styles = useStyles()
 
   // state
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false)
   // User state
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("");
-  const [allergy, setAllergy] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [country, setCountry] = useState('')
+  const [allergy, setAllergy] = useState('')
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
 
   // functions
 
   const abrirCerrarModal = () => {
-    setModal(!modal);
-  };
+    setModal(!modal)
+  }
 
   const handlesubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     actions.handleSubmitCreateUser(
       name,
       lastName,
@@ -85,8 +86,8 @@ const ModalCreateAcount = () => {
       allergy,
       userName,
       password
-    );
-  };
+    )
+  }
 
   const body = (
     <form className={styles.modal} onSubmit={(e) => handlesubmit(e)}>
@@ -99,7 +100,7 @@ const ModalCreateAcount = () => {
         label="Name"
         className={styles.textField}
         onChange={(e) => {
-          setName(e.target.value);
+          setName(e.target.value)
         }}
       />
 
@@ -107,7 +108,7 @@ const ModalCreateAcount = () => {
         label="Last Name"
         className={styles.textField}
         onChange={(e) => {
-          setLastName(e.target.value);
+          setLastName(e.target.value)
         }}
       />
 
@@ -115,7 +116,7 @@ const ModalCreateAcount = () => {
         label="email"
         className={styles.textField}
         onChange={(e) => {
-          setEmail(e.target.value);
+          setEmail(e.target.value)
         }}
       />
 
@@ -123,7 +124,7 @@ const ModalCreateAcount = () => {
         label="Country"
         className={styles.textField}
         onChange={(e) => {
-          setCountry(e.target.value);
+          setCountry(e.target.value)
         }}
       />
 
@@ -131,7 +132,7 @@ const ModalCreateAcount = () => {
         label="allergy"
         className={styles.textField}
         onChange={(e) => {
-          setAllergy(e.target.value);
+          setAllergy(e.target.value)
         }}
       />
 
@@ -139,7 +140,7 @@ const ModalCreateAcount = () => {
         label="userName"
         className={styles.textField}
         onChange={(e) => {
-          setUserName(e.target.value);
+          setUserName(e.target.value)
         }}
       />
 
@@ -147,7 +148,7 @@ const ModalCreateAcount = () => {
         label="password"
         className={styles.textField}
         onChange={(e) => {
-          setPassword(e.target.value);
+          setPassword(e.target.value)
         }}
       />
 
@@ -165,18 +166,18 @@ const ModalCreateAcount = () => {
         <button className={styles.buttons}>Add Pantry</button>
       </div>
     </form>
-  );
+  )
 
   return (
     <div>
       <Button className={styles.buttonOpen} onClick={() => abrirCerrarModal()}>
-        open create acount modal
+        Sign up
       </Button>
       <Modal open={modal} onClose={abrirCerrarModal}>
         {body}
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default ModalCreateAcount;
+export default ModalCreateAcount

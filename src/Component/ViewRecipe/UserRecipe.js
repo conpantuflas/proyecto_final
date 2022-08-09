@@ -1,6 +1,6 @@
-import React from "react";
-import "./style/userRecipe.css";
-import person from "./image/person.jpg";
+import React from 'react'
+import './style/userRecipe.css'
+import person from './image/person.jpg'
 
 const UserRecipe = () => {
   return (
@@ -13,7 +13,7 @@ const UserRecipe = () => {
         <p className="userName_UserRecipe">@user_name</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserRecipe;
+export default UserRecipe

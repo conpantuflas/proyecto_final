@@ -1,11 +1,23 @@
-import React from "react";
+import React from 'react'
+import userImage from '../Navbar/image/user.png'
+import './profile.css'
 
 const Profile = () => {
   return (
     <div>
-      <h1>User profileeeeeeeeeeeeeeeeee</h1>
+      <div>
+        <h2>Pepito</h2>
+        <p>@user_name</p>
+        <img src={userImage} alt="x" />
+      </div>
+      <div>
+        <button>My Pantry</button>
+      </div>
+      <div>
+        <p>My recipes</p>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
