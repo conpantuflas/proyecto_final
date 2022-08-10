@@ -80,7 +80,6 @@ const CreateRecipe = () => {
 
   return (
     <>
-      <Navbar />
       <ModalSessionStart />
       <form
         onSubmit={(e) => {

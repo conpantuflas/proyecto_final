@@ -1,20 +1,29 @@
 import React from 'react'
-import userImage from '../Navbar/image/user.png'
+import userImage from '../profile/userImage.png'
 import './profile.css'
+import ModalMyPantry from '../modals/ModalMyPantry'
+import { Link } from 'react-router-dom'
+import Slider from '../slider/SliderMyRecipe'
 
 const Profile = () => {
   return (
     <div>
       <div>
-        <h2>Pepito</h2>
-        <p>@user_name</p>
-        <img src={userImage} alt="x" />
+        <h2 className="name_profile">Pepito</h2>
+        <p className="userName_profile">@user_name</p>
+        <img className="userImage_profile" src={userImage} alt="x" />
       </div>
       <div>
-        <button>My Pantry</button>
+        <ModalMyPantry />
       </div>
-      <div>
-        <p>My recipes</p>
+      <div className="divMyRecipe_profile">
+        <div className="contentTitleRecipe_profile">
+          <p className="titleRecipes_profile">My recipes</p>
+          <Link to="/createRecipe" className="addRecipe_profile">
+            add recipe +
+          </Link>
+        </div>
+        <Slider />
       </div>
     </div>
   )

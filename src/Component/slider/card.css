@@ -1,0 +1,44 @@
+
+.dadContent_card{
+    margin: 0 1rem;
+}
+
+.content_card{
+    position: relative;
+    width:13rem ;
+    height: 17rem;
+}
+
+.image_card{
+    width:13rem ;
+    height: 17rem;
+    object-fit: cover;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.divInfo_card{
+    position: absolute;
+    top: 13rem;
+    left: 0px;
+    z-index: 2;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 28%, rgba(0,0,0,0.5881006864988558) 67%, rgba(255,255,255,0) 100%);
+    width: 100%;
+    height: 4rem;
+    border-radius: 10px;
+}
+
+.title_card{
+    color: #fff;
+    margin: 0;
+    font-weight: 300;
+}
+
+.valuation_card{
+    color:yellow;
+    font-weight: 100;
+}
