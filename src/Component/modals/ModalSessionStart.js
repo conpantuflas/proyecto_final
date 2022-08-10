@@ -114,8 +114,7 @@ const ModalSessionStart = () => {
         className={styles.buttonOpenLogin}
         onClick={() => abrirCerrarModal()}
       >
-        {' '}
-        Login{' '}
+        Login
       </Button>
       <Modal open={modal} onClose={abrirCerrarModal}>
         {body}
