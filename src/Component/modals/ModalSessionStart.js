@@ -75,6 +75,7 @@ const ModalSessionStart = () => {
   const logInButton = e => {
     e.preventDefault()
     actions.handleLogin(user, passw)
+    actions.handleSubmitLoginUser(user, passw)
     setModal(!modal)
   }
 

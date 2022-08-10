@@ -23,10 +23,10 @@ const CommentsRates = () => {
     actions.getRecipeById(params.id)
     window.setTimeout(() => {
       setRecipeData(store.recipes[0])
-      console.log(recipeData)
-      console.log(store.recipes[0])
+      // console.log(recipeData)
+      // console.log(store.recipes[0])
       const dataRecipeId = store.recipes[0]
-      console.log(dataRecipeId['name_recipe'])
+      // console.log(dataRecipeId['name_recipe'])
       setRecipeName(dataRecipeId['name_recipe'])
     }, 2000)
   }, [])

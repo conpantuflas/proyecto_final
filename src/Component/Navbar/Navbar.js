@@ -3,6 +3,7 @@ import { Context } from '../../Store/appContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './navbar.css'
 import logo from './image/chef.png'
+import brand from './image/app.JPG'
 import save from './image/save.png'
 import user from './image/user.png'
 import { Link } from 'react-router-dom'
@@ -18,7 +19,13 @@ const Navbar = () => {
     <div className="content_navbar">
       <NavHoverMenu />
       <Link to="/" onClick={() => (window.location.href = '/')}>
-        <img className="logo" src={logo} alt="x" />
+        <img
+          className="logo"
+          src={logo}
+          alt="x"
+          onClick={() => console.log(store.loggedUserResponse)}
+        />
+        <img className="border" src={brand} alt="x" />
       </Link>
       <SearchBar />
       {/* <NavFilters /> */}
