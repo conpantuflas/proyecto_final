@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Context } from '../../Store/appContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './navbar.css'
@@ -12,7 +12,11 @@ import SearchBar from './SearchBar'
 import NavHoverMenu from './Navbar_HoverMenu'
 
 const Navbar = () => {
-  const { store } = useContext(Context)
+  const { store, actions } = useContext(Context)
+
+  // useEffect(() => {
+  //   actions.getLoggedUSerData()
+  // }, [])
 
   //store.recipes en el []
   return (
@@ -23,7 +27,10 @@ const Navbar = () => {
           className="logo"
           src={logo}
           alt="x"
-          onClick={() => console.log(store.loggedUserResponse)}
+          onClick={() => {
+            console.log(store.loggedUserResponse)
+            sessionStorage.getItem('token')
+          }}
         />
         <img className="border" src={brand} alt="x" />
       </Link>
