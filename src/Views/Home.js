@@ -7,15 +7,12 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import HomeCards from './HomeCards'
-
 import ModalMyPantry from '../Component/modals/ModalMyPantry'
-import ModalSessionStart from '../Component/modals/ModalSessionStart'
 
 const Home = () => {
   return (
     <div className="home-container">
       <div className="home-subcontainer-1">
-        <ModalSessionStart />
         <ModalMyPantry />
       </div>
       <div className="home-subcontainer-2 d-flex justify-content-center">

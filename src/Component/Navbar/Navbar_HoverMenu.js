@@ -1,32 +1,34 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../Store/appContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css";
-import menu from "./image/menu.png";
+import React, { useState, useContext } from 'react'
+import { Context } from '../../Store/appContext'
+import ModalSessionStart from '../modals/ModalSessionStart'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './navbar.css'
+import menu from './image/menu.png'
+import ModalCreateAcount from '../modals/ModalCreateAcount'
 const NavHoverMenu = () => {
-  let [showMenuList, setShowMenuList] = useState(false);
-  const { actions, store } = useContext(Context);
+  let [showMenuList, setShowMenuList] = useState(false)
+  const { actions, store } = useContext(Context)
 
-  const handleMouseEnterMenu = (e) => {
-    setShowMenuList(true);
-  };
-  const handleMouseLeaveMenu = (e) => {
-    setShowMenuList(false);
-  };
+  const handleMouseEnterMenu = e => {
+    setShowMenuList(true)
+  }
+  const handleMouseLeaveMenu = e => {
+    setShowMenuList(false)
+  }
 
-  let handleLogin = (e) => {
-    actions.handleLogin();
-    actions.handleLoginToken();
-    window.setTimeout(() => {
-      console.log(store.loggedUserResponse);
-      console.log(store.active_token);
-    }, 2000);
-  };
+  // let handleLogin = e => {
+  //   // actions.handleLogin()
+  //   // actions.handleLoginToken()
+  //   window.setTimeout(() => {
+  //     // console.log(store.loggedUserResponse)
+  //     // console.log(store.active_token)
+  //   }, 2000)
+  // }
 
-  let handleLogout = (e) => {
-    actions.handleLogout();
-    console.log(store.loggedUserResponse);
-  };
+  let handleLogout = e => {
+    actions.handleLogout()
+    console.log(store.loggedUserResponse)
+  }
 
   return (
     <div
@@ -38,21 +40,20 @@ const NavHoverMenu = () => {
       {showMenuList && (
         <div className="hoverMenu-list-group-container">
           <ul className="hoverMenu-list-group">
-            <li className="hoverMenu-list-item">Register</li>
-            <li className="hoverMenu-list-item" onClick={(e) => handleLogin(e)}>
-              Log in
+            <li className="hoverMenu-list-item">
+              <ModalSessionStart />
             </li>
-            <li
-              className="hoverMenu-list-item"
-              onClick={(e) => handleLogout(e)}
-            >
+            <li className="hoverMenu-list-item">
+              <ModalCreateAcount />
+            </li>
+            <li className="hoverMenu-list-item" onClick={e => handleLogout(e)}>
               Log out
             </li>
           </ul>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default NavHoverMenu;
+export default NavHoverMenu

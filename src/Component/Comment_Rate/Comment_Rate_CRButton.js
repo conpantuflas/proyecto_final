@@ -1,58 +1,58 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Context } from "../../Store/appContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, Button } from "react-bootstrap";
-import StarsModal from "./Comment_Rate_Stars_Modal";
-import "./Comment_Rate.css";
+import React, { useState, useContext, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { Context } from '../../Store/appContext'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Modal, Button } from 'react-bootstrap'
+import StarsModal from './Comment_Rate_Stars_Modal'
+import './Comment_Rate.css'
 
 const CommentRateButton = () => {
-  const { actions, store } = useContext(Context);
-  const params = useParams();
-  let [showModal, setShowModal] = useState(false);
-  let [id_user] = useState(store.loggedUserResponse.id);
-  let [id_recipe] = useState(params.id);
-  let [comment, setComment] = useState("");
-  let [value, setValue] = useState(null);
-  let [storeuserID, setstoreuserId] = useState(""); //borrar
+  const { actions, store } = useContext(Context)
+  const params = useParams()
+  let [showModal, setShowModal] = useState(false)
+  let [id_user] = useState(store.loggedUserResponse.id)
+  let [id_recipe] = useState(params.id)
+  let [comment, setComment] = useState('')
+  let [value, setValue] = useState(null)
+  let [storeuserID, setstoreuserId] = useState('') //borrar
 
   useEffect(() => {
     //probar con un for
     window.setTimeout(() => {
-      if (store.comments[0] != undefined) {
-        let storedComments = [...store.comments[0]];
-        const filterIduser = storedComments.filter((comment) => {
-          return comment.id_user == store.loggedUserResponse.id || undefined;
-        });
-        if (filterIduser == undefined) {
-          console.log("no comment for user id");
-        } else if (filterIduser[0] == undefined) {
-          console.log("no comment for user id");
+      if (store.comments[0] !== undefined) {
+        let storedComments = [...store.comments[0]]
+        const filterIduser = storedComments.filter(comment => {
+          return comment.id_user === store.loggedUserResponse.id || undefined
+        })
+        if (filterIduser === undefined) {
+          console.log('no comment for user id')
+        } else if (filterIduser[0] === undefined) {
+          console.log('no comment for user id')
         } else {
-          let userIdfromCommet = filterIduser[0].id_user;
-          setstoreuserId(userIdfromCommet);
+          let userIdfromCommet = filterIduser[0].id_user
+          setstoreuserId(userIdfromCommet)
         }
       }
-    }, 3000);
-  }, []);
+    }, 3000)
+  }, [])
 
   let handleModal = () => {
-    setShowModal(!showModal);
-  };
+    setShowModal(!showModal)
+  }
 
-  let handleTextArea = (event) => {
-    setComment(event.target.value);
-  };
+  let handleTextArea = event => {
+    setComment(event.target.value)
+  }
 
-  let captureStars = (enteredStars) => {
-    const capturedEnteredStars = enteredStars;
-    setValue(capturedEnteredStars);
-  };
+  let captureStars = enteredStars => {
+    const capturedEnteredStars = enteredStars
+    setValue(capturedEnteredStars)
+  }
 
   let acceptButtonHandler = () => {
-    actions.postComment(id_user, id_recipe, comment, value);
+    actions.postComment(id_user, id_recipe, comment, value)
     // window.location.reload();
-  };
+  }
 
   return (
     <>
@@ -85,9 +85,9 @@ const CommentRateButton = () => {
           </Modal>
         </div>
       ) : (
-        "This user already commented"
+        'This user already commented'
       )}
     </>
-  );
-};
-export default CommentRateButton;
+  )
+}
+export default CommentRateButton
