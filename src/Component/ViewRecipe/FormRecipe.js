@@ -1,45 +1,26 @@
-import React, { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Context } from "../../Store/appContext";
-import "./style/form.css";
+import React, { useContext, useEffect } from 'react'
+import { Context } from '../../Store/appContext'
+import './style/form.css'
 
 const FormRecipe = () => {
-  const params = useParams();
-  const { actions, store } = useContext(Context);
-
-  useEffect(() => {
-    window.setTimeout(() => {
-      actions.getIngredientsByRecipeId(params.id);
-    }, 2000);
-  }, []);
+  const { store, actions } = useContext(Context)
 
   return (
     <div className="contentIngredient">
       <h2>Ingredients</h2>
-      <div className="contentAllIngredients">
-        <div className="ingredientRecipe">
-          <p className="oneIngredient"> a ingredient</p>
-          <p className="measure"> 200g</p>
-        </div>
-        <div className="ingredientRecipe">
-          <p className="oneIngredient"> a ingredient</p>
-          <p className="measure"> 200g</p>
-        </div>
-        <div className="ingredientRecipe">
-          <p className="oneIngredient"> a ingredient</p>
-          <p className="measure"> 200g</p>
-        </div>
-        <div className="ingredientRecipe">
-          <p className="oneIngredient"> a ingredient</p>
-          <p className="measure"> 200g</p>
-        </div>
-        <div className="ingredientRecipe">
-          <p className="oneIngredient"> a ingredient</p>
-          <p className="measure"> 200g</p>
-        </div>
-      </div>
+      {store.ingredientDetails.length
+        ? store.ingredientDetails.map((iDet, i) => (
+            <div className="ingredientRecipe">
+              <div key={i} className="contentAllIngredients">
+                <p className="oneIngredient">{iDet.ingredient_name}</p>
+                <p className="measure">{iDet.i_details_portion}</p>
+                <p className="measure">{iDet.i_details_measure}</p>
+              </div>
+            </div>
+          ))
+        : 'error'}
     </div>
-  );
-};
+  )
+}
 
-export default FormRecipe;
+export default FormRecipe

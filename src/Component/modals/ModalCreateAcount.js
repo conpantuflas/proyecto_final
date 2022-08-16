@@ -16,22 +16,24 @@ const useStyles = makeStyles(theme => ({
     padding: '16px 32px 24px',
     top: '2%',
     left: '35%',
-    transform: 'transalte(-50%, -50%)'
+
+    transform: 'transalte(-50%, -50%)',
   },
   textField: {
-    width: '100%'
+    width: '100%',
   },
   buttonOpen: {
     margin: '0 auto',
-    textTransform: 'capitalize'
+
   },
   close: {
     background: 'none',
     border: 'none',
-    marginLeft: '27rem'
+    marginLeft: '27rem',
   },
   contentButtons: {
-    dispaly: 'inline'
+    dispaly: 'inline',
+
   },
   buttons: {
     border: 'none',
@@ -40,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700,
     padding: '0.3rem 2.5rem',
     borderRadius: '15px',
-    marginLeft: '1.5rem'
+    marginLeft: '1.5rem',
   },
   buttonNotificationEmail: {
     border: 'none',
@@ -77,6 +79,7 @@ const ModalCreateAcount = () => {
     setModal(!modal)
   }
 
+
   const handlesubmit = e => {
     e.preventDefault()
     actions.handleSubmitCreateUser(
@@ -100,15 +103,15 @@ const ModalCreateAcount = () => {
       <TextField
         label="Name"
         className={styles.textField}
-        onChange={e => {
+        onChange={(e) => {
           setName(e.target.value)
         }}
       />
 
       <TextField
         label="Last Name"
-        className={styles.textField}
-        onChange={e => {
+
+        onChange={(e) => {
           setLastName(e.target.value)
         }}
       />

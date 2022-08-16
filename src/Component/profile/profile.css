@@ -1,0 +1,37 @@
+.name_profile{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.1rem;
+    font-weight: 400;
+}
+
+.userName_profile{
+    color: rgb(167, 165, 165);
+    font-weight: 300;
+}
+
+.userImage_profile{
+    width: 9rem;
+}
+
+.divMyRecipe_profile{
+    margin-top: 1rem;
+}
+
+
+.addRecipe_profile{
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin:0 0 0 7%;
+    display: flex;
+    justify-content: flex-start;   
+}
+
+.titleRecipes_profile{
+    font-size: 2rem;
+    font-weight: 200;
+    margin:0 0 0 7%;
+    display: flex;
+    justify-content: flex-start;
+}
+

@@ -1,0 +1,14 @@
+
+.dadContent_sMyRecipe{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Content_sMyRecipe{
+    width:100%;
+    height: 24rem; 
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+}

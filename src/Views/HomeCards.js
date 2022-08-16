@@ -18,17 +18,17 @@ const HomeCards = () => {
   const [recipe_2, setRecipe2] = useState([])
   const [recipe_3, setRecipe3] = useState([])
 
-  useEffect(() => {
-    // actions.getRecipes
-    window.setTimeout(() => {
-      actions.getRecipes()
-    }, 2000)
-    window.setTimeout(() => {
-      setRecipe1(store.recipes_all[0])
-      setRecipe2(store.recipes_all[1])
-      setRecipe3(store.recipes_all[2])
-    }, 3000)
-  }, [])
+  // useEffect(() => {
+  //   // actions.getRecipes
+  //   window.setTimeout(() => {
+  //     actions.getRecipes()
+  //   }, 2000)
+  //   window.setTimeout(() => {
+  //     setRecipe1(store.recipes_all[0])
+  //     setRecipe2(store.recipes_all[1])
+  //     setRecipe3(store.recipes_all[2])
+  //   }, 3000)
+  // }, [])
 
   // let recipe1 = store.recipes_all[0];
 

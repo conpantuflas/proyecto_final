@@ -3,16 +3,15 @@ import { Context } from '../../Store/appContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './navbar.css'
 import filter from './image/filter.png'
-import { Link } from 'react-router-dom'
 
 const NavFilters = () => {
   const [showFilterList, setShowFilterList] = useState(false)
   const { actions, store } = useContext(Context)
   const [myRecipesClick, setMyRecipesClick] = useState(false)
-  const handleMouseEnterFilters = e => {
+  const handleMouseEnterFilters = (e) => {
     setShowFilterList(true)
   }
-  const handleMouseLeaveFilters = e => {
+  const handleMouseLeaveFilters = (e) => {
     setShowFilterList(false)
   }
 

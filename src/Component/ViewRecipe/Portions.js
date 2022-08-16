@@ -1,14 +1,14 @@
-import React from 'react';
-import "./style/portions.css"
-import portion from "./image/portions.png"
+import React from 'react'
+import './style/portions.css'
+import portionImage from './image/portions.png'
 
-const Portions = () => {
-    return (
-        <div className="content_portions">
-            <img className="image_portions" src={portion} alt="x" />
-            <p className="portions_portions" >4</p>
-        </div>
-    );
+const Portions = ({ portion }) => {
+  return (
+    <div className="content_portions">
+      <img className="image_portions" src={portionImage} alt="x" />
+      <p className="portions_portions">{portion}</p>
+    </div>
+  )
 }
 
-export default Portions;
+export default Portions

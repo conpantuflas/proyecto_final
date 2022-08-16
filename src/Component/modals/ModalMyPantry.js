@@ -14,16 +14,17 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: '16px 32px 24px',
     top: '20%',
-    left: '34%',
+    left: '27%',
     transform: 'transalte(-50%, -50%)',
   },
   buttonOpenPantry: {
-    margin: '0',
-    textTransform: 'lowercase',
-    color: '#fff',
-    padding: 0,
-    fontWeight: 700,
+    margin: '0.2rem',
+    color: '#000',
+    textTransform: 'lowerCase',
+    padding: '0.5rem 2.3rem',
     fontSize: '1.1rem',
+    background: '#43d400',
+    borderRadius: '15px',
   },
   closePantry: {
     background: 'none',
@@ -144,7 +145,7 @@ const ModalMyPantry = () => {
         className={styles.buttonOpenPantry}
         onClick={() => abrirCerrarModal()}
       >
-        Add my Pantry
+        My Pantry
       </Button>
       <Modal open={modal} onClose={abrirCerrarModal}>
         {body}

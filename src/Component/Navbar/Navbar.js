@@ -22,7 +22,9 @@ const Navbar = () => {
   return (
     <div className="content_navbar">
       <NavHoverMenu />
-      <Link to="/" onClick={() => (window.location.href = '/')}>
+      <Link to="/">
+        <img className="logo" src={logo} alt="x" />
+      {/* <Link to="/" onClick={() => (window.location.href = '/')}>
         <img
           className="logo"
           src={logo}
@@ -33,14 +35,19 @@ const Navbar = () => {
           }}
         />
         <img className="border" src={brand} alt="x" />
+        */}
       </Link>
       <SearchBar />
       {/* <NavFilters /> */}
       <Link to="/favoritos">
         <img className="save" src={save} alt="x" />
       </Link>
-      <div className="contentUserAndUsername_navbar">
+      <Link to="/profile" className="contentUserAndUsername_navbar">
         <img className="user" src={user} alt="x" />
+        {/* <p className="userName_navbar">{store.loggedUserResponse.user_name}</p> */}
+      </Link>
+
+      <div>
         <p className="userName_navbar">
           {store.loggedUserResponse.user_name !== ''
             ? store.loggedUserResponse.user_name

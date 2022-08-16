@@ -5,11 +5,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ViewRecipe from './Views/ViewRecipe'
 import CreateRecipe from './Component/CreateRecipe/CreateRecipe'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Favoritos from './Component/Favoritos/Favoritos'
 import Home from './Views/Home'
 import Navbar from './Component/Navbar/Navbar'
 import CommentsRates from './Component/Comment_Rate/Comment_Rate'
 import ModalSessionStart from './Component/modals/ModalSessionStart'
+import Profile from './Component/profile/Profile'
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
           <Route path="/createrecipe" element={<CreateRecipe />} />
           {/* <Route path="/favoritos" element={<Favoritos />} /> */}
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

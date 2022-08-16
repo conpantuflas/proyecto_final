@@ -14,46 +14,54 @@ import CommentRateStars from '../Component/Comment_Rate/Comment_Rate_Stars'
 
 const ViewRecipe = () => {
   const params = useParams()
-  const { store } = useContext(Context)
-  const [recipeName] = useState('')
+
+  const { store, actions } = useContext(Context)
+
+  // useEffect(() => {
+  //   window.setTimeout(() => {
+  //     actions.getCommentsByRecipeId(params.id)
+  //     const filteredById = store.recipes.filter((frecipe) => {
+  //       return frecipe.id == params.id
+  //     })
+  //     setRecipeName(filteredById[0].name_recipe)
+  //     console.log(params.id, filteredById[0].name_recipe)
+  //   }, 2000)
+  // }, [])
 
   useEffect(() => {
-    window.setTimeout(() => {
-      // actions.getCommentsByRecipeId(params.id);
-      // const filteredById = store.recipes.filter((frecipe) => {
-      //   return frecipe.id == params.id;
-      // });
-      // setRecipeName(filteredById[0].name_recipe);
-      // console.log(params.id, filteredById[0].name_recipe);
-    }, 2000)
-  }, [])
+    actions.getRecipe(params.id)
+    if (store.recipeIdGet != 0) {
+      actions.getStep(store.recipeIdGet)
+      actions.getRecipeIngredient(store.recipeIdGet)
+    }
+  }, [store.recipeIdGet])
 
   const style = {
     titleRecipe: {
       fontSize: '2rem',
       margin: '0',
-      marginTop: '1.4rem'
+      marginTop: '1.4rem',
     },
     contentTitleAndButtonFather: {
       display: 'flex',
-      justifyContent: 'flex-end'
+      justifyContent: 'flex-end',
     },
     contentTitleAndButton: {
       width: '59%',
       display: 'flex',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
     },
 
     contentSlider: {
       maxWidth: '400px',
       maxHeight: '300px',
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
     contentSliderIngredients: {
       marginTop: '1rem',
       display: 'flex',
       justifyContent: 'space-around',
-      marginLeft: '6rem'
+      marginLeft: '6rem',
     },
 
     contentUserAndTimeRecipe: {
@@ -61,24 +69,20 @@ const ViewRecipe = () => {
       display: 'flex',
       justifyContent: 'space-between',
       margin: '0 auto',
-      marginTop: '2rem'
+      marginTop: '2rem',
     },
     contentTimeRecipeAndPortions: {
-      display: 'flex'
-    }
+      display: 'flex',
+    },
   }
 
   return (
     <div>
-      {store.recipes && (
-        <div style={style.contentTitleAndButtonFather}>
-          <div style={style.contentTitleAndButton}>
-            {store.recipes && <h2 style={style.titleRecipe}>{recipeName}</h2>}
-
-            <ButtonPantryDiscount />
-          </div>
+      <div style={style.contentTitleAndButtonFather}>
+        <div style={style.contentTitleAndButton}>
+          <h2 style={style.titleRecipe}>{store.nameRecipe}</h2>
         </div>
-      )}
+      </div>
       {/* valuation */}
       <div>
         <CommentRateStars />
@@ -101,8 +105,8 @@ const ViewRecipe = () => {
       <div style={style.contentUserAndTimeRecipe}>
         <UserRecipe />
         <div style={style.contentTimeRecipeAndPortions}>
-          <TimeRecipe />
-          <Portions />
+          <TimeRecipe time={store.time} />
+          <Portions portion={store.portion} />
         </div>
       </div>
       {/* steps */}

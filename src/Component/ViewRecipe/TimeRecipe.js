@@ -1,17 +1,16 @@
-import React from 'react';
-import "./style/timeRecipe.css"
-import time from "./image/time.png"
+import React from 'react'
+import './style/timeRecipe.css'
+import timeImage from './image/time.png'
 
-const TimeRecipe = () => {
-    return (
-        <div className="content_timeRecipe">
-            <img className='image_TimeRecipe' src={time} alt="x" />
-            <div className="contentTime_timeRecipe">
-                <p className='number_timeRecipe'>30</p>
-                <p className='scaleTime_timeRecipe'>min</p>
-            </div>
-        </div>
-    );
+const TimeRecipe = ({ time }) => {
+  return (
+    <div className="content_timeRecipe">
+      <img className="image_TimeRecipe" src={timeImage} alt="x" />
+      <div className="contentTime_timeRecipe">
+        <p className="number_timeRecipe">{time}</p>
+      </div>
+    </div>
+  )
 }
 
-export default TimeRecipe;
+export default TimeRecipe

@@ -1,13 +1,15 @@
-import React, { useState, useContext } from 'react'
+
+import React, { useState, useEffect, useContext } from 'react'
 import { Context } from '../../Store/appContext'
-import ModalSessionStart from '../modals/ModalSessionStart'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './navbar.css'
 import menu from './image/menu.png'
-import ModalCreateAcount from '../modals/ModalCreateAcount'
+import ModalSessionStart from '../modals/ModalSessionStart'
+
 const NavHoverMenu = () => {
   let [showMenuList, setShowMenuList] = useState(false)
   const { actions, store } = useContext(Context)
+
 
   const handleMouseEnterMenu = e => {
     setShowMenuList(true)
@@ -40,7 +42,11 @@ const NavHoverMenu = () => {
       {showMenuList && (
         <div className="hoverMenu-list-group-container">
           <ul className="hoverMenu-list-group">
-            <li className="hoverMenu-list-item">
+            <li className="hoverMenu-list-item">Register</li>
+            <li
+              className="hoverMenu-list-item" //onClick={(e) => handleLogin(e)}
+            >
+
               <ModalSessionStart />
             </li>
             <li className="hoverMenu-list-item">
