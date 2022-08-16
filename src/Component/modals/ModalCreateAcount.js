@@ -4,7 +4,7 @@ import { Modal, TextField, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ModalMyPantry from './ModalMyPantry'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   modal: {
     position: 'absolute',
     width: '500px',
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '16px 32px 24px',
     top: '2%',
     left: '35%',
+
     transform: 'transalte(-50%, -50%)',
   },
   textField: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonOpen: {
     margin: '0 auto',
+
   },
   close: {
     background: 'none',
@@ -31,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contentButtons: {
     dispaly: 'inline',
+
   },
   buttons: {
     border: 'none',
@@ -47,11 +50,11 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgb(0, 102, 255)',
     fontWeight: 300,
     padding: '1rem',
-    paddingLeft: '0.3rem',
+    paddingLeft: '0.3rem'
   },
   title: {
-    margin: 0,
-  },
+    margin: 0
+  }
 }))
 
 const ModalCreateAcount = () => {
@@ -76,7 +79,8 @@ const ModalCreateAcount = () => {
     setModal(!modal)
   }
 
-  const handlesubmit = (e) => {
+
+  const handlesubmit = e => {
     e.preventDefault()
     actions.handleSubmitCreateUser(
       name,
@@ -90,7 +94,7 @@ const ModalCreateAcount = () => {
   }
 
   const body = (
-    <form className={styles.modal} onSubmit={(e) => handlesubmit(e)}>
+    <form className={styles.modal} onSubmit={e => handlesubmit(e)}>
       <button className={styles.close} onClick={() => abrirCerrarModal()}>
         x
       </button>
@@ -106,7 +110,7 @@ const ModalCreateAcount = () => {
 
       <TextField
         label="Last Name"
-        className={styles.textField}
+
         onChange={(e) => {
           setLastName(e.target.value)
         }}
@@ -115,7 +119,7 @@ const ModalCreateAcount = () => {
       <TextField
         label="email"
         className={styles.textField}
-        onChange={(e) => {
+        onChange={e => {
           setEmail(e.target.value)
         }}
       />
@@ -123,7 +127,7 @@ const ModalCreateAcount = () => {
       <TextField
         label="Country"
         className={styles.textField}
-        onChange={(e) => {
+        onChange={e => {
           setCountry(e.target.value)
         }}
       />
@@ -131,7 +135,7 @@ const ModalCreateAcount = () => {
       <TextField
         label="allergy"
         className={styles.textField}
-        onChange={(e) => {
+        onChange={e => {
           setAllergy(e.target.value)
         }}
       />
@@ -139,7 +143,7 @@ const ModalCreateAcount = () => {
       <TextField
         label="userName"
         className={styles.textField}
-        onChange={(e) => {
+        onChange={e => {
           setUserName(e.target.value)
         }}
       />
@@ -147,7 +151,7 @@ const ModalCreateAcount = () => {
       <TextField
         label="password"
         className={styles.textField}
-        onChange={(e) => {
+        onChange={e => {
           setPassword(e.target.value)
         }}
       />
@@ -160,7 +164,7 @@ const ModalCreateAcount = () => {
       </div>
 
       <div className={styles.contentButtons}>
-        <button className={styles.buttons} onClick={(e) => handlesubmit(e)}>
+        <button className={styles.buttons} onClick={e => handlesubmit(e)}>
           Create Acount
         </button>
         <button className={styles.buttons}>Add Pantry</button>

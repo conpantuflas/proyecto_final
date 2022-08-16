@@ -3,9 +3,11 @@ import { Context } from '../../Store/appContext'
 import { Modal, TextField, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ModalCreateAcount from './ModalCreateAcount'
+
 import { useNavigate } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
+
   modal: {
     position: 'absolute',
     width: '400px',
@@ -27,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#000',
     textTransform: 'lowercase',
     curson: 'pointer',
+
   },
   close: {
     background: 'none',
@@ -66,6 +69,7 @@ const ModalSessionStart = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+
   const abrirCerrarModal = () => {
     setModal(!modal)
   }
@@ -74,6 +78,22 @@ const ModalSessionStart = () => {
     e.preventDefault()
     actions.handleSubmitLoginUser(email, password)
     navigate('/profile')
+
+  const handleUserInput = e => {
+    const userInput = e.target.value
+    setUser(userInput)
+  }
+
+  const handlePassIn = e => {
+    const passInput = e.target.value
+    setPassw(passInput)
+  }
+
+  const logInButton = e => {
+    e.preventDefault()
+    actions.handleLogin(user, passw)
+    actions.handleSubmitLoginUser(user, passw)
+    setModal(!modal)
   }
 
   const body = (
@@ -85,12 +105,15 @@ const ModalSessionStart = () => {
         <h2>Session Start</h2>
       </div>
       <br />
-      <TextField
+      <TextFieldsssssssssssssssssssssssssssssssssssssssssssssssssssss
         label="Email"
         className={styles.textField}
         onChange={(e) => {
           setEmail(e.target.value)
         }}
+        // label="User Name"
+        // className={styles.textField}
+        // onChange={handleUserInput}
       />
       <br /> <br />
       <TextField
@@ -117,6 +140,7 @@ const ModalSessionStart = () => {
       <p className={styles.buttonOpenLogin} onClick={() => abrirCerrarModal()}>
         Login
       </p>
+
       <Modal open={modal} onClose={abrirCerrarModal}>
         {body}
       </Modal>

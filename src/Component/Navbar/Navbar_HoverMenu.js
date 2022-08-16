@@ -1,30 +1,33 @@
+
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from '../../Store/appContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './navbar.css'
 import menu from './image/menu.png'
 import ModalSessionStart from '../modals/ModalSessionStart'
+
 const NavHoverMenu = () => {
   let [showMenuList, setShowMenuList] = useState(false)
   const { actions, store } = useContext(Context)
 
-  const handleMouseEnterMenu = (e) => {
+
+  const handleMouseEnterMenu = e => {
     setShowMenuList(true)
   }
-  const handleMouseLeaveMenu = (e) => {
+  const handleMouseLeaveMenu = e => {
     setShowMenuList(false)
   }
 
-  let handleLogin = (e) => {
-    actions.handleLogin()
-    actions.handleLoginToken()
-    window.setTimeout(() => {
-      console.log(store.loggedUserResponse)
-      console.log(store.active_token)
-    }, 2000)
-  }
+  // let handleLogin = e => {
+  //   // actions.handleLogin()
+  //   // actions.handleLoginToken()
+  //   window.setTimeout(() => {
+  //     // console.log(store.loggedUserResponse)
+  //     // console.log(store.active_token)
+  //   }, 2000)
+  // }
 
-  let handleLogout = (e) => {
+  let handleLogout = e => {
     actions.handleLogout()
     console.log(store.loggedUserResponse)
   }
@@ -43,12 +46,13 @@ const NavHoverMenu = () => {
             <li
               className="hoverMenu-list-item" //onClick={(e) => handleLogin(e)}
             >
+
               <ModalSessionStart />
             </li>
-            <li
-              className="hoverMenu-list-item"
-              onClick={(e) => handleLogout(e)}
-            >
+            <li className="hoverMenu-list-item">
+              <ModalCreateAcount />
+            </li>
+            <li className="hoverMenu-list-item" onClick={e => handleLogout(e)}>
               Log out
             </li>
           </ul>
