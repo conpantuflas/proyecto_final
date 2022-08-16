@@ -3,10 +3,8 @@ import { Context } from '../../Store/appContext'
 import './createRecipe.css'
 import timeImage from '../ViewRecipe/image/time.png'
 import portions from '../ViewRecipe/image/portions.png'
-import Navbar from '../Navbar/Navbar'
 import Ingredient from '../modals/Ingredient'
 import Step from './Step'
-import ModalSessionStart from '../modals/ModalSessionStart'
 
 const objectDataRequireIngredient = {
   ingredientName: '',
@@ -69,9 +67,9 @@ const CreateRecipe = () => {
     setStep(copyStep)
   }
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault()
-    actions.handleSubmitCreateRecipe(nameRecipe, time, portion)
+    await actions.handleSubmitCreateRecipe(nameRecipe, time, portion)
     ingredients.map((ingred) =>
       actions.handleSubmitCreateIngredientRecipe(ingred)
     )
@@ -80,7 +78,6 @@ const CreateRecipe = () => {
 
   return (
     <>
-      <ModalSessionStart />
       <form
         onSubmit={(e) => {
           e.preventDefault()

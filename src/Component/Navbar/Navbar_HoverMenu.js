@@ -1,32 +1,33 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../Store/appContext";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css";
-import menu from "./image/menu.png";
+import React, { useState, useEffect, useContext } from 'react'
+import { Context } from '../../Store/appContext'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './navbar.css'
+import menu from './image/menu.png'
+import ModalSessionStart from '../modals/ModalSessionStart'
 const NavHoverMenu = () => {
-  let [showMenuList, setShowMenuList] = useState(false);
-  const { actions, store } = useContext(Context);
+  let [showMenuList, setShowMenuList] = useState(false)
+  const { actions, store } = useContext(Context)
 
   const handleMouseEnterMenu = (e) => {
-    setShowMenuList(true);
-  };
+    setShowMenuList(true)
+  }
   const handleMouseLeaveMenu = (e) => {
-    setShowMenuList(false);
-  };
+    setShowMenuList(false)
+  }
 
   let handleLogin = (e) => {
-    actions.handleLogin();
-    actions.handleLoginToken();
+    actions.handleLogin()
+    actions.handleLoginToken()
     window.setTimeout(() => {
-      console.log(store.loggedUserResponse);
-      console.log(store.active_token);
-    }, 2000);
-  };
+      console.log(store.loggedUserResponse)
+      console.log(store.active_token)
+    }, 2000)
+  }
 
   let handleLogout = (e) => {
-    actions.handleLogout();
-    console.log(store.loggedUserResponse);
-  };
+    actions.handleLogout()
+    console.log(store.loggedUserResponse)
+  }
 
   return (
     <div
@@ -39,8 +40,10 @@ const NavHoverMenu = () => {
         <div className="hoverMenu-list-group-container">
           <ul className="hoverMenu-list-group">
             <li className="hoverMenu-list-item">Register</li>
-            <li className="hoverMenu-list-item" onClick={(e) => handleLogin(e)}>
-              Log in
+            <li
+              className="hoverMenu-list-item" //onClick={(e) => handleLogin(e)}
+            >
+              <ModalSessionStart />
             </li>
             <li
               className="hoverMenu-list-item"
@@ -52,7 +55,7 @@ const NavHoverMenu = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default NavHoverMenu;
+export default NavHoverMenu

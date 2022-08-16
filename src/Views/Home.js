@@ -8,16 +8,12 @@ import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import HomeCards from './HomeCards'
 
-import ModalMyPantry from '../Component/modals/ModalMyPantry'
 import ModalSessionStart from '../Component/modals/ModalSessionStart'
 
 const Home = () => {
   return (
     <div className="home-container">
-      <div className="home-subcontainer-1">
-        <ModalSessionStart />
-        <ModalMyPantry />
-      </div>
+      <div className="home-subcontainer-1"></div>
       <div className="home-subcontainer-2 d-flex justify-content-center">
         <ul className="list-group list-group-flush border border-5 rounded rounded-5">
           <li className="list-group-item ">

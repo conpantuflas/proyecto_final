@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="content_navbar">
       <NavHoverMenu />
-      <Link to="/" onClick={() => (window.location.href = '/')}>
+      <Link to="/">
         <img className="logo" src={logo} alt="x" />
       </Link>
       <SearchBar />

@@ -13,17 +13,18 @@ const getState = ({ setStore, getActions, getStore }) => {
         password: '',
       },
 
-      loggedUser: {
-        email: '',
-        password: '',
-      },
-
       createIngredient: {
         ingredientName: '',
         ingredientPortion: '',
       },
 
       loggedUserResponse: [],
+
+      loggedUserResponse2: {
+        id: 0,
+        name: '',
+        userName: '',
+      },
 
       createComment: {
         id_user: '',
@@ -62,30 +63,83 @@ const getState = ({ setStore, getActions, getStore }) => {
         portion: 0,
       },
 
-      createDetailIngredientRecipe: {
-        ingredient_name: '',
-        i_details_portion: 0,
-        i_details_measure: '',
-      },
-
-      createStep: {
-        step: '',
-        recipe_id: 0,
-      },
+      recipe_id: 0,
+      recipesByUser: [],
+      nameRecipe: '',
+      portion: 0,
+      time: '',
+      step: [],
+      ingredientDetails: [],
+      ingredientName: '',
+      recipeIdGet: 0,
     },
 
     actions: {
       //°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°POSTS°°
 
       //createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*createRecipe*
-      handleSubmitCreateRecipe: (nameRecipe, time, portion) => {
+
+      //all recipes
+      recipes: () => {
+        fetch('http://localhost:8080/recipes')
+          .then((resp) => resp.json())
+          .then((data) => data)
+      },
+
+      //all recipes by user
+      recipesUser: async (id) => {
+        if (id != 0) {
+          await fetch(`http://localhost:8080/recipes_user/${id}`)
+            .then((resp) => resp.json())
+            .then((data) => {
+              setStore({ recipesByUser: data })
+            })
+        }
+      },
+
+      getRecipe: (id) => {
+        fetch(`http://localhost:8080/get_recipe/${id}`)
+          .then((resp) => resp.json())
+          .then((data) =>
+            setStore({
+              portion: data.portion,
+              time: data.time,
+              nameRecipe: data.name_recipe,
+              recipeIdGet: data.id,
+            })
+          )
+      },
+
+      getRecipeIngredient: async (id) => {
+        await fetch(`http://localhost:8080/get_ingredient_recipe/${id}`)
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({ ingredientDetails: data })
+          })
+      },
+
+      getIngredientName: (id) => {
+        fetch(`http://localhost:8080/get_i_name/${id}`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ ingredientName: data.ingredient_name }))
+      },
+
+      getStep: async (id) => {
+        await fetch(`http://localhost:8080/get_step/${id}`)
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({ step: data })
+          })
+      },
+
+      handleSubmitCreateRecipe: async (nameRecipe, time, portion) => {
         const { createRecipe, tokenLogin } = getStore()
 
         createRecipe.time = time
         createRecipe.portion = portion
         createRecipe.name_recipe = nameRecipe
 
-        fetch('http://localhost:8080/create_recipe', {
+        const recipeId = await fetch('http://localhost:8080/create_recipe', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -98,38 +152,38 @@ const getState = ({ setStore, getActions, getStore }) => {
           }),
         })
           .then((resp) => resp.json())
-          .then((data) => console.log(data))
+          .then((data) => {
+            return data.id
+          })
+
+        setStore({
+          recipe_id: recipeId,
+        })
       },
 
       handleSubmitCreateIngredientRecipe: (ingredientName) => {
-        const { createDetailIngredientRecipe, tokenLogin, createStep } =
-          getStore()
+        const { recipe_id } = getStore()
 
-        createDetailIngredientRecipe.ingredient_name =
-          ingredientName.ingredientName
-
-        createDetailIngredientRecipe.i_details_portion = Number(
-          ingredientName.ingredientPortion
-        )
-
-        createDetailIngredientRecipe.i_details_measure =
-          ingredientName.ingredientMeasure
+        if (recipe_id != 0) {
+          fetch('http://localhost:8080/create_details_ingredient_recipe', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+              i_details_portion: Number(ingredientName.ingredientPortion),
+              i_details_measure: ingredientName.ingredientMeasure,
+              ingredient_name: ingredientName.ingredientName,
+              recipe_id: recipe_id,
+            }),
+          })
+            .then((resp) => resp.json())
+            .then((data) => console.log(data))
+        } else {
+          console.log('fallo')
+        }
 
         //detail of ingredint
-        fetch('http://localhost:8080/create_details_ingredient_recipe', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            i_details_portion: createDetailIngredientRecipe.i_details_portion,
-            i_details_measure: createDetailIngredientRecipe.i_details_measure,
-            ingredient_name: createDetailIngredientRecipe.ingredient_name,
-            user_id: tokenLogin.userId,
-          }),
-        })
-          .then((resp) => resp.json())
-          .then((data) => (createStep.recipe_id = data.recipe_id))
       },
       handleLoginToken: () => {
         //se hace en el componente
@@ -155,9 +209,7 @@ const getState = ({ setStore, getActions, getStore }) => {
       },
 
       handleSubmitCreateStep: (step) => {
-        const { createStep, tokenLogin } = getStore()
-
-        createStep.step = step
+        const { recipe_id } = getStore()
 
         fetch('http://localhost:8080/create_step', {
           method: 'POST',
@@ -165,8 +217,8 @@ const getState = ({ setStore, getActions, getStore }) => {
             'content-type': 'application/json',
           },
           body: JSON.stringify({
-            step: createStep.step,
-            user_id: tokenLogin.userId,
+            step: step,
+            recipe_id: recipe_id,
           }),
         })
           .then((resp) => resp.json())
@@ -292,7 +344,7 @@ const getState = ({ setStore, getActions, getStore }) => {
         // .then((resjs) => console.log(resjs)); //Falta hacer que la respuesta haga setStore, la respuesta del console log es: {access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2N…NzIn0.VXQt9tId7q-UQOFg55G6GlY6PMcU01fYdlEc5vHXV-U', user: {…}}
       },
 
-      handleSubmitCreateUser: (
+      handleSubmitCreateUser: async (
         name,
         lastName,
         email,
@@ -316,7 +368,7 @@ const getState = ({ setStore, getActions, getStore }) => {
         createUser.user_name = userName
         createUser.password = password
 
-        fetch('http://localhost:8080/user', {
+        const user = await fetch('http://localhost:8080/user', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -326,29 +378,34 @@ const getState = ({ setStore, getActions, getStore }) => {
           .then((resp) => resp.json())
           .then((data) => {
             console.log(data)
-            tokenLogin.userId = data.user.id
-            tokenLogin.token = data.access_token
-          })
 
-        fetch('http://localhost:8080/create_my_pantry', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-            Authorization: `Bearer ${tokenLogin.token}`,
-          },
-          body: JSON.stringify({
-            user_id: tokenLogin.userId,
-          }),
-        })
-          .then((resp) => resp.json())
-          .then((data) => {
-            createPantry.pantryId = data.pantryId
-            createDetailIngredientPantry.pantryId = data.pantryId
+            setStore({
+              tokenLogin: {
+                token: data.access_token,
+                userId: data.user.id,
+              },
+            })
+            fetch('http://localhost:8080/create_my_pantry', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json',
+                Authorization: `Bearer ${data.access_token}`,
+              },
+              body: JSON.stringify({
+                user_id: data.user.id,
+              }),
+            })
+              .then((resp) => resp.json())
+              .then((data) => {
+                createPantry.pantryId = data.pantryId
+                createDetailIngredientPantry.pantryId = data.pantryId
+                console.log(data)
+              })
           })
       },
 
       handleSubmitLoginUser: (email, password) => {
-        const { createUser, tokenLogin } = getStore()
+        const { createUser } = getStore()
 
         createUser.email = email
         createUser.password = password
@@ -363,8 +420,18 @@ const getState = ({ setStore, getActions, getStore }) => {
           .then((resp) => resp.json())
           .then((data) => {
             console.log(data)
-            tokenLogin.token = data.access_token
-            tokenLogin.userId = data.user.id
+
+            setStore({
+              loggedUserResponse2: {
+                id: data.user.id,
+                name: data.user.name,
+                userName: data.user.user_name,
+              },
+              tokenLogin: {
+                token: data.access_token,
+                userId: data.user.id,
+              },
+            })
           })
       },
     },
